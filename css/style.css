@@ -71,7 +71,9 @@
     color: #fff
 }
 body {
-    background: #191a1d;
+    background: #ffffff;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .cabecera {
