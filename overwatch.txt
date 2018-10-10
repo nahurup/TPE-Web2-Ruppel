@@ -1,0 +1,111 @@
+D.VA
+TANQUE
+El meca de D.Va es ágil y poderoso. Sus dos cañones de fusión arrasan con todo a corta distancia, y puede usar sus impulsores para superar a enemigos y obstáculos, además de absorber proyectiles con su matriz de defensa.
+
+ORISA
+TANQUE
+Orisa hace las veces de punto de anclaje central para su equipo y defiende a sus camaradas desde primera línea con una barrera protectora. Puede atacar desde larga distancia, reforzar sus propias defensas, lanzar cargas de gravitones para desplazar y ralentizar a sus enemigos y desplegar un potenciador que aumenta el daño de varios de sus aliados a la vez.
+
+REINHARDT
+TANQUE
+Ataviado de una armadura potenciada y equipado con su martillo, Reinhardt realiza embestidas propulsadas por el campo de batalla y defiende a su escuadrón con un enorme campo protector.
+
+ROADHOG
+TANQUE
+Roadhog emplea su insigne garfio para atraer a los enemigos y hacerlos trizas con los disparos de su chatarrera. Es lo bastante robusto como para aguantar cantidades ingentes de daño y puede recuperar la salud con un inhalador portátil.
+
+WINSTON
+TANQUE
+Winston cuenta con una fuerza bestial e inventos impresionantes, como unos propulsores, un cañón tesla que lanza descargas eléctricas, un proyector de escudos portátil y más.
+
+WRECKING BALL
+TANQUE
+Wrecking Ball se desplaza rodando por todo el campo y aprovecha su arsenal de armas y el poderoso cuerpo mecánico que tiene para aplastar a sus enemigos.
+
+ZARYA
+TANQUE
+Zarya es una ayuda inestimable en el frente de cualquier batalla gracias a sus potentes barreras personales, que convierten el daño en energía para su enorme cañón de partículas.
+
+BASTION
+DAÑO
+Sus protocolos de reparación y su capacidad de adoptar modos de asalto inmóvil, reconocimiento móvil y tanque devastador aumentan considerablemente las probabilidades de victoria de Bastion.
+
+DOOMFIST
+DAÑO
+Gracias a su tecnología cibernética, Doomfist es un luchador de primera línea muy ágil y fuerte. Además de infligir daño a distancia con Cañón de mano, Doomfist puede golpear el suelo, lanzar enemigos al aire y desequilibrarlos, o meterse en la refriega cargando con Puño cohete. Cuando se enfrenta a un equipo que permanece muy unido, Doomfist pega un salto, se sale del campo de visión y se estrella contra el suelo con su espectacular Meteoro.
+
+GENJI
+DAÑO
+Genji lanza precisos y letales shuriken a sus objetivos y usa su moderna katana para desviar proyectiles o infligir cortes veloces que hacen sangrar a los enemigos.
+
+HANZO
+DAÑO
+Las versátiles flechas de Hanzo pueden revelar a sus enemigos o fragmentarse para atacar a varios objetivos. Es capaz de escalar muros para disparar flechas desde las alturas, y también puede invocar a un titánico espíritu dragón.
+
+JUNKRAT
+DAÑO
+El armamento antipersona de Junkrat está compuesto de un lanzagranadas que lanza proyectiles que rebotan, minas de conmoción que hacen saltar a los enemigos por los aires y cepos que los inmovilizan por completo.
+
+MCCREE
+DAÑO
+Armado con su Pacificador, McCree da cuenta de los objetivos con una precisión letal, para después huir del peligro a una velocidad vertiginosa.
+
+MEI
+DAÑO
+Los dispositivos de manipulación climática de Mei ralentizan a los oponentes y protegen ubicaciones. Su pistola endotérmica lanza carámbanos dañinos y ráfagas heladas. Además, Mei puede crionizarse para protegerse de ataques u obstruir los movimientos del equipo rival con muros de hielo.
+
+PHARAH
+DAÑO
+Surcando los cielos en su armadura de combate y armada con un lanzacohetes que dispara misiles altamente explosivos y de conmoción, Pharah es decisiva en el campo de batalla.
+
+REAPER
+DAÑO
+DAÑOSus escopetas infernales, la fantasmal habilidad de volverse inmune al daño y el poder de desplazarse por las tinieblas hacen de Reaper uno de los seres más letales de la Tierra.
+
+SOLDADO: 76
+DAÑO
+Provisto de armamento de alta tecnología, como un rifle de pulsos experimental capaz de lanzar espirales de potentes cohetes hélice, Soldado: 76 cuenta con la velocidad y la experiencia de un guerrero veterano.
+
+SOMBRA
+DAÑO
+Su invisibilidad y sus ataques debilitantes han hecho que Sombra desarrolle unas técnicas de infiltración insuperables. Su hackeo puede alterar la estrategia de los enemigos, lo que los convierte en blancos más fáciles, y su PEM supone una ventaja ante grupos de enemigos. La baliza y el camuflaje de Sombra la convierten en un objetivo difícil de atrapar.
+
+SYMMETRA
+DAÑO
+Symmetra usa su proyector de fotones para despachar a los adversarios, escudar a sus compañeros, construir teletransportadores y desplegar torretas centinela que disparan rayos de partículas.
+
+TORBJÖRN
+DAÑO
+El amplio arsenal de Torbjörn incluye una remachadora y un martillo, además de una forja personal que usa para construir torretas, mejorarlas y distribuir packs de armadura.
+
+TRACER
+DAÑO
+Armada con dos pistolas de pulsos, bombas energéticas de tiempo y un humor rápido como el viento, Tracer es capaz de «trasladarse» instantáneamente de un sitio a otro y retroceder en su línea temporal mientras combate el mal por todo el mundo.
+
+WIDOWMAKER
+DAÑO
+Widowmaker va equipada de lo que haga falta para eliminar a sus objetivos, como minas que despiden gas venenoso, un visor que otorga infravisión a su escuadrón y un potente rifle de francotirador que puede disparar en modo automático.
+
+ANA
+APOYO
+Ana posee un arsenal versátil que le permite curar y potenciar a sus aliados desde lejos, mientras que los disparos de su rifle biótico, los dardos tranquilizantes y los efectos de las granadas bióticas logran neutralizar a aquellos que suponen una amenaza para sus compañeros.
+
+BRIGITTE
+APOYO
+La especialidad de Brigitte es la armadura. Puede lanzar kits de reparación a sus compañeros o sanar de forma automática a sus aliados al dañar a los enemigos con su mangual. Puede golpear con el mangual en un arco amplio que le permite alcanzar a varios objetivos o puede ejecutar un Lanzamiento de mangual, que aturde a un enemigo a distancia. En el combate, Escudo barrera le proporciona defensa personal mientras ataca a los enemigos con Carga con escudo. Su habilidad definitiva, Formación, proporciona un aumento sustancial de velocidad a Brigitte y una armadura duradera a sus aliados cercanos.
+
+LÚCIO
+APOYO
+En el campo de batalla, el sofisticado amplificador sónico de Lúcio golpea a los enemigos con proyectiles y repele a los rivales con descargas de sonido. Sus canciones pueden curar o aumentar la velocidad de movimiento de su equipo, y puede cambiar de canción cuando quiera.
+
+MERCY
+APOYO
+El traje Valkyrie de Mercy la ayuda a mantenerse cerca de sus compañeros de equipo cual ángel de la guarda, y los sana, los resucita o los fortalece con el haz que emana de su bastón caduceo.
+
+MOIRA
+APOYOLas habilidades bióticas de Moira le permiten sanar e infligir daño, según la situación lo requiera. Mientras Rayo biótico otorga a Moira recursos para combatir a corto alcance, Orbe biótico le permite sanar e infligir daño desde una distancia mayor. Moira también puede utilizar Evanescencia como vía de escape o para permanecer cerca de aliados que necesiten su ayuda. Cuando se cargue su habilidad Coalescencia, Moira podrá evitar la muerte de varios aliados o rematar a enemigos debilitados.
+
+ZENYATTA
+APOYO
+Zenyatta se sirve de orbes de armonía y discordia para sanar a sus compañeros de equipo y debilitar a los oponentes, y siempre busca un estado de trascendencia que lo hace inmune al daño.
+

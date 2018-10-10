@@ -23,20 +23,10 @@
   <?php
   $smarty = new Smarty();
   $smarty->display('templates/cabecera.tpl');
+  $smarty->display('templates/agregar_heroe.tpl');
+  $smarty->display('templates/footer.tpl');
   ?>
-
-
-  <div class="container" id="container">
-    <div class="row">
-
-    </div>
-  </div>
   
-  <footer class="footer">
-      Copyright © 2018
-  </footer>
-  </div>
-
 </body>
 
 </html>

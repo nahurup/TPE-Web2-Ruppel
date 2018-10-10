@@ -2,7 +2,7 @@
         <header>
         <h1>Overwatch</h1>
         </header>
-        <div class="portada" style="background-image: url(https://i.imgur.com/biMMFOK.jpg);"></div>
+        <div class="portada"></div>
         <div class="menu">
             <input id="toggle" type="checkbox"/>
             <label for="toggle" class="drop">
