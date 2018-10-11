@@ -10,7 +10,7 @@ if ($_GET['action'] == '') {
   $partesURL = explode('/', $_GET['action']);
 
   if($partesURL[0] === 'sumar'){
-    Sumar($partesURL[1], $partesURL[2]);
+    sumar($partesURL[1], $partesURL[2]);
   }elseif ($partesURL[0] === 'pi') {
     MostrarPi();
   }elseif ($partesURL[0] === 'about') {

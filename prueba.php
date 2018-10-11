@@ -1,11 +1,8 @@
 <?php 
 
-if(isset($_GET["a"], $_GET["b"])) {
-  $valor1 = $_GET["a"];
-  $valor2 = $_GET["b"];
-
+function sumar($valor1, $valor2) {
   $resultado = $valor1 + $valor2;
-
+  
   echo "<h1>Resultado: $resultado</h1>";
 }
 
