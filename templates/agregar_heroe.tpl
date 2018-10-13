@@ -1,3 +1,5 @@
+{include file="cabecera.tpl"}
+
 <div class="container" id="container">
     <div class="row">
         <form>
@@ -29,3 +31,5 @@
         </form>
     </div>
 </div>
+
+{include file="footer.tpl"}

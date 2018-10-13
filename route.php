@@ -2,25 +2,25 @@
 
 require_once "agregar.php";
 require_once "prueba.php";
-require_once "lista.php";
+require_once "controller\TareasController.php";
 
+$controller = new TareasController();
 
 if ($_GET['action'] == '') {
   MostrarAgregar();
 }else {
   $partesURL = explode('/', $_GET['action']);
 
-  if($partesURL[0] === 'sumar'){
-    sumar($partesURL[1], $partesURL[2]);
-  }elseif ($partesURL[0] === 'lista') {
-    MostrarLista();
-  }elseif ($partesURL[0] === 'about') {
-    if(isset($partesURL[1]) && $partesURL[1] == 'javi'){
-      AboutPersonalizado($partesURL[1]);
-    }else{
-      About();
-    }
+  if ($_GET['action'] == 'agregar') {
+    $controller->InsertTarea();
+  }elseif ($partesURL[0] == 'borrar') {
+    $controller->BorrarTarea($partesURL[1]);
+  }elseif ($partesURL[0] == 'completada') {
+    $controller->CompletarTarea($partesURL[1]);
+  }elseif ($partesURL[0] == 'lista') {
+    $controller->Home();
   }
 }
 
  ?>
+ 

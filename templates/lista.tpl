@@ -1,12 +1,19 @@
+{include file="cabecera.tpl"}
+
 <div class="container" id="container">
     
         <form>
             <div class="form-group">
                 <h1>Lista</h1>
                 <ul class="list-group">
-                    <li class="list-group-item">Lista 1</li>
-                    <li class="list-group-item">Lista 2</li>
-                </ul>
+                    {foreach from=$Tareas item=tarea}
+                      {if $tarea['completada'] == 1}
+                        <li class="list-group-item"><s>{$tarea['titulo']} ----- {$tarea['descripcion']}</s><a href="borrar/{$tarea['id']}">BORRAR</a></li>
+                      {else}
+                        <li class="list-group-item">{$tarea['titulo']} ----- {$tarea['descripcion']}<a href="borrar/{$tarea['id']}">BORRAR</a> | <a href="completada/{$tarea['id']}">COMPLETADA</a></li>
+                      {/if}
+                    {/foreach}
+              </ul>
             </div>
         </form>
         
@@ -30,6 +37,6 @@
                 </form>
             </div>
         </form>
-        
-    
 </div>
+
+{include file="footer.tpl"}
