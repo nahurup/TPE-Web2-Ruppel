@@ -11,8 +11,7 @@ class ConfigApp
     public static $PARAMS = 'params';
     public static $ACTIONS = [
       ''=> 'TareasController#Home',
-      'home'=> 'TareasController#Home',
-      'javito'=> 'TareasController#Home',
+      'agregar'=> 'TareasController#InsertarTarea',
       'borrar'=> 'TareasController#BorrarTarea',
       'completada'=> 'TareasController#CompletarTarea',
       'editar'=> 'TareasController#EditarTarea',

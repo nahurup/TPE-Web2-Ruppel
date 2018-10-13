@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <base href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/" target="_self">
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +26,7 @@
                <svg width="36px" height="36px" viewBox="0 0 48 48"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
             </label >
             <nav>
-               <a href="#">Elemento A</a>
+               <a href="">Inicio</a>
                <a href="#">Elemento B</a>
                <a href="#">Elemento C</a>
                <a href="#">Elemento D</a>
