@@ -10,12 +10,9 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      ''=> 'TareasController#Home',
-      'agregar'=> 'TareasController#InsertarTarea',
-      'borrar'=> 'TareasController#BorrarTarea',
-      'completada'=> 'TareasController#CompletarTarea',
-      'editar'=> 'TareasController#EditarTarea',
-      'guardarEditar'=> 'TareasController#GuardarEditarTarea',
+      ''=> 'PersonajesController#Home',
+      'roles'=> 'RolesController#Home',
+      'categorias'=> 'CategoriasController#Home',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',

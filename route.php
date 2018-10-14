@@ -1,8 +1,9 @@
 <?php
 
-
 require_once "config/ConfigApp.php";
-require_once "controller\TareasController.php";
+require_once "controller\RolesController.php";
+require_once "controller\PersonajesController.php";
+
 
 function parseURL($url)
 {
@@ -32,7 +33,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new TareasController();
+      $controller =  new PersonajesController();
       echo $controller->Home();
     }
 }
