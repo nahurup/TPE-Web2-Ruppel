@@ -6,13 +6,11 @@ class RolesController
 {
   private $view;
   private $model;
-  private $Titulo;
 
   function __construct()
   {
     $this->view = new RolesView();
     $this->model = new RolesModel();
-    $this->Titulo = "Lista de Tareas Controlador 1";
   }
 
   function Home(){

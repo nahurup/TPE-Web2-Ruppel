@@ -22,7 +22,8 @@ class PersonajesController
   function Personaje($param){
     if (isset($param)) {
       $personaje = $this->model->GetPersonaje($param);
-      $this->view->MostrarPersonaje($personaje);
+      $roles = $this->model->GetRoles();
+      $this->view->MostrarPersonaje($personaje, $roles);
     }
     else {
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));

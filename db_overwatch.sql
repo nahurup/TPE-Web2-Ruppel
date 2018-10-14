@@ -75,7 +75,8 @@ INSERT INTO `rol` (`id`, `n_personajes`, `nombre`, `descripcion`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombre` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
