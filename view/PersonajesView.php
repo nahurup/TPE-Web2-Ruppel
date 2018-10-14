@@ -18,15 +18,6 @@ class PersonajesView
     //$smarty->debugging = true;
     $smarty->display('templates/personaje.tpl');
   }
-
-  function MostrarEditarPersonaje($Titulo, $Tarea){
-    $this->Smarty->assign('Personajes',$personajes);
-    $this->Smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-    //$smarty->debugging = true;
-    //$this->Smarty->display('templates/MostrarEditarTarea.tpl');
-  }
-
 }
 
 ?>

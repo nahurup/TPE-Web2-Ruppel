@@ -34,16 +34,6 @@ class RolesModel
     $sentencia->execute($idRol);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-
-  function InsertarRol($id,$n_personajes,$nombre){
-    $sentencia = $this->db->prepare("INSERT INTO rol(id, n_personajes, nombre) VALUES(?,?,?)");
-    $sentencia->execute(array($id,$n_personajes,$nombre));
-  }
-
-  function BorrarRol($idRol){
-    $sentencia = $this->db->prepare( "delete from rol where id=?");
-    $sentencia->execute(array($idRol));
-  }
 }
 
 

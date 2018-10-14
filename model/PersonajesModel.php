@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class PersonajesModel
 {
   private $db;
@@ -34,17 +32,11 @@ class PersonajesModel
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-
+  
   function InsertarPersonaje($nombre,$descripcion,$id_rol){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
     $sentencia->execute(array($nombre,$descripcion,$id_rol));
   }
-
-  function BorrarPersonaje($idPersonaje){
-    $sentencia = $this->db->prepare( "delete from personaje where id=?");
-    $sentencia->execute(array($idPersonaje));
-  }
 }
 
-
- ?>
+?>

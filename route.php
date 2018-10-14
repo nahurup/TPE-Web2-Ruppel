@@ -3,6 +3,7 @@
 require_once "config/ConfigApp.php";
 require_once "controller\RolesController.php";
 require_once "controller\PersonajesController.php";
+require_once "controller\AdminController.php";
 
 
 function parseURL($url)

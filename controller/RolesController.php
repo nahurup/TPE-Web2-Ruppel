@@ -28,20 +28,6 @@ class RolesController
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
   }
-
-  function InsertarRol(){
-    $nombre = $_POST["nombreForm"];
-    $n_personajes = 0;
-
-    $this->model->InsertarRol($nombre,$n_personajes);
-
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-
-  function BorrarRol($param){
-    $this->model->BorrarRol($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
 }
 
  ?>
