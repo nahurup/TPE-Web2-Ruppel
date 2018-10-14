@@ -10,9 +10,10 @@ class RolesView
     $smarty->display('templates/lista_roles.tpl');
   }
 
-  function MostrarRol($rol){
+  function MostrarRol($datos, $personajes){
     $smarty = new Smarty();
-    $smarty->assign('rol',$rol);
+    $smarty->assign('datos',$datos);
+    $smarty->assign('personajes',$personajes);
     //$smarty->debugging = true;
     $smarty->display('templates/rol.tpl');
   }

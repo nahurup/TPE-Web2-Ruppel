@@ -53,17 +53,18 @@ INSERT INTO `personaje` (`id`, `nombre`, `descripcion`, `id_rol`) VALUES
 CREATE TABLE `rol` (
   `id` int(11) NOT NULL,
   `n_personajes` int(11) NOT NULL,
-  `nombre` varchar(15) NOT NULL
+  `nombre` varchar(15) NOT NULL,
+  `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `rol`
 --
 
-INSERT INTO `rol` (`id`, `n_personajes`, `nombre`) VALUES
-(1, 0, 'apoyo'),
-(2, 0, 'daño'),
-(3, 0, 'tanque');
+INSERT INTO `rol` (`id`, `n_personajes`, `nombre`, `descripcion`) VALUES
+(1, 1, 'apoyo', 'Ayudan a los demas'),
+(2, 1, 'daño', 'Hacen daño'),
+(3, 1, 'tanque', 'Tanquean el daño');
 
 -- --------------------------------------------------------
 

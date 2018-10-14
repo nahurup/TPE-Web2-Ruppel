@@ -11,11 +11,11 @@ class PersonajesView
     $smarty->display('templates/lista_personajes.tpl');
   }
 
-  function MostrarPersonaje($personaje){
+  function MostrarPersonaje($datos){
     $smarty = new Smarty();
-    $smarty->assign('personaje',$rol);
+    $smarty->assign('datos',$datos);
     //$smarty->debugging = true;
-    $smarty->display('templates/rol.tpl');
+    $smarty->display('templates/personaje.tpl');
   }
 
   function MostrarEditarPersonaje($Titulo, $Tarea){

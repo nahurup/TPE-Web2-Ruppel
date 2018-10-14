@@ -23,7 +23,8 @@ class RolesController
   function Rol($param){
     if (isset($param)) {
       $rol = $this->model->GetRol($param);
-      $this->view->Mostrar($rol);
+      $personajes = $this->model->GetPersonajes();
+      $this->view->MostrarRol($rol, $personajes);
     }
     else {
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
