@@ -23,6 +23,12 @@ class PersonajesModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function GetPersonaje($idPersonaje){
+    $sentencia = $this->db->prepare("select * from personaje where id=?");
+    $sentencia->execute($idPersonaje);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   function GetRoles(){
     $sentencia = $this->db->prepare("select * from rol");
     $sentencia->execute();

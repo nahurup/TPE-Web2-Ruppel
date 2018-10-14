@@ -10,6 +10,13 @@ class RolesView
     $smarty->display('templates/lista_roles.tpl');
   }
 
+  function MostrarRol($rol){
+    $smarty = new Smarty();
+    $smarty->assign('rol',$rol);
+    //$smarty->debugging = true;
+    $smarty->display('templates/rol.tpl');
+  }
+
   function MostrarEditarRol($nombre, $roles){
     $this->Smarty->assign('Nombre',$nombre);
     $this->Smarty->assign('Roles',$roles);

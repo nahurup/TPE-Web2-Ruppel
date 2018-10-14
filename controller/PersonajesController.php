@@ -19,6 +19,16 @@ class PersonajesController
       $this->view->Mostrar($personajes, $roles);
   }
 
+  function Personaje($param){
+    if (isset($param)) {
+      $personaje = $this->model->GetPersonaje($param);
+      $this->view->Mostrar($personaje);
+    }
+    else {
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    }
+  }
+
   function InsertarPersonaje(){
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];

@@ -18,7 +18,17 @@ class RolesController
   function Home(){
     $roles = $this->model->GetRoles();
     $this->view->Mostrar($roles);
-}
+  }
+
+  function Rol($param){
+    if (isset($param)) {
+      $rol = $this->model->GetRol($param);
+      $this->view->Mostrar($rol);
+    }
+    else {
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    }
+  }
 
   function InsertarRol(){
     $nombre = $_POST["nombreForm"];

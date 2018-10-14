@@ -18,11 +18,16 @@ class RolesModel
   }
 
   function GetRoles(){
-
     $sentencia = $this->db->prepare("select * from rol");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-}
+  }
+
+  function GetRol($idRol){
+    $sentencia = $this->db->prepare("select * from rol where id=?");
+    $sentencia->execute($idRol);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
   function InsertarRol($id,$n_personajes,$nombre){
     $sentencia = $this->db->prepare("INSERT INTO rol(id, n_personajes, nombre) VALUES(?,?,?)");

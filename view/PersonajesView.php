@@ -11,6 +11,13 @@ class PersonajesView
     $smarty->display('templates/lista_personajes.tpl');
   }
 
+  function MostrarPersonaje($personaje){
+    $smarty = new Smarty();
+    $smarty->assign('personaje',$rol);
+    //$smarty->debugging = true;
+    $smarty->display('templates/rol.tpl');
+  }
+
   function MostrarEditarPersonaje($Titulo, $Tarea){
     $this->Smarty->assign('Personajes',$personajes);
     $this->Smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));

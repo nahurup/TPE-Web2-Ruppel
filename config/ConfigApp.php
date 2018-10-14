@@ -11,7 +11,9 @@ class ConfigApp
     public static $PARAMS = 'params';
     public static $ACTIONS = [
       ''=> 'PersonajesController#Home',
+      'personaje'=> 'PersonajesController#Personaje',
       'roles'=> 'RolesController#Home',
+      'rol'=> 'RolesController#Rol',
       'categorias'=> 'CategoriasController#Home',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',
