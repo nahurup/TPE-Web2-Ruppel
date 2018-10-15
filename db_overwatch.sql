@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2018 a las 04:06:32
+-- Tiempo de generación: 15-10-2018 a las 05:02:36
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -73,10 +73,16 @@ INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `nombre` varchar(15) NOT NULL,
+  `password` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `password`) VALUES
+(1, 'admin', '$2y$10$Azi/8EPj6QaWys2Q4Bmyeenp.nv8dGeuION/SRj8Rvb2gWn0HF8Zq');
 
 --
 -- Índices para tablas volcadas
@@ -95,6 +101,12 @@ ALTER TABLE `rol`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -109,6 +121,12 @@ ALTER TABLE `personaje`
 --
 ALTER TABLE `rol`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

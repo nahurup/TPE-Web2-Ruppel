@@ -19,6 +19,8 @@ class ConfigApp
       'insertarpj'=> 'PersonajesController#InsertarPersonaje',
       'agregarrol'=> 'AdminController#AgregarRol',
       'insertarrol'=> 'RolesController#InsertarRol',
+      'agregarusuario'=> 'AdminController#AgregarUsuario',
+      'insertarusuario'=> 'AdminController#InsertarUsuario',
       'borrarrol'=> 'RolesController#BorrarRol',
       'editarrol'=> 'RolesController#EditarRol',
       'borrarpj'=> 'PersonajesController#BorrarPersonaje',
@@ -28,7 +30,7 @@ class ConfigApp
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
-      'verificarLogin' => 'LoginController#verificarLogin'
+      'verificarlogin' => 'AdminController#verificarLogin'
     ];
 
 }

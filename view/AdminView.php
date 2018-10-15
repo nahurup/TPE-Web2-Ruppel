@@ -20,6 +20,17 @@ class AdminView
         $smarty = new Smarty();
         $smarty->display('templates/agregar_rol.tpl');
     }
+
+    function MostrarAgregarUsuario(){
+        $smarty = new Smarty();
+        $smarty->display('templates/agregar_usuario.tpl');
+    }
+
+    function mostrarLogin($message = ''){
+        $smarty = new Smarty();
+        $smarty->assign('Message',$message); // El 'Titulo' del assign puede ser cualquier valor
+        $smarty->display('templates/login.tpl');
+    }
 }
 
 ?>

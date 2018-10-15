@@ -45,7 +45,7 @@ class RolesController
   }
 
   function EditarRol($param){
-    $rol= $this->model->GetRol($param[0]);
+    $rol= $this->model->GetRol($param);
     $this->view->MostrarEditarRol($rol[0]);
   }
 

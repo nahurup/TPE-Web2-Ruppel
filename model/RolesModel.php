@@ -31,7 +31,7 @@ class RolesModel
 
   function GetRol($idRol){
     $sentencia = $this->db->prepare("select * from rol where id=?");
-    $sentencia->execute(array($idRol));
+    $sentencia->execute($idRol);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
