@@ -29,7 +29,6 @@
                <a href="">Inicio</a>
                <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/roles">Roles</a>
                <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/admin">Admin</a>
-               <a href="#">Elemento D</a>
             </nav>  
         </div>
 </div>

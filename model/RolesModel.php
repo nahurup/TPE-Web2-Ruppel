@@ -43,6 +43,8 @@ class RolesModel
   function BorrarRol($idRol){
     $sentencia = $this->db->prepare("delete from rol where id=?");
     $sentencia->execute(array($idRol));
+    $sentencia = $this->db->prepare("delete from personaje where id_rol=?");
+    $sentencia->execute(array($idRol));
   }
 
   function GuardarEditarRol($nombre,$descripcion,$id){
