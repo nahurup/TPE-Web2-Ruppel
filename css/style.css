@@ -1,9 +1,71 @@
-@media (min-width: 992px) {
-  .container {
-    max-width: 100%;
-    padding: 25px;
+body {
+    background: #ffffff;
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media (max-width: 871px) {
+    body {
+        background: #ffffff;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #2f2e2e12;
-  }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+.lista {
+    text-align: center;
+}
+
+.lista-personajes {
+    border-top-left-radius: 22px;
+    background: #e4e4e4;
+    border-top-right-radius: 22px;
+}
+
+.item-personaje {
+    border-bottom: 1px solid #cacaca;
+    padding: 17px;
+}
+
+.item-personaje h2 {
+    background: #e4e4e4;
+}
+
+.item-personaje h5 {
+    background: #e9ecef;
+    margin-bottom: 0px;
+    padding: 4px;
+}
+
+.form-group {
+    margin-bottom: 0rem;
 }
 
 .cenblock {
@@ -12,12 +74,6 @@
 .box>p,
 .info {
     display: block
-}
-
-body {
-    background: #ffffff;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .cabecera {

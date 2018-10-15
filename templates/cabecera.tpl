@@ -26,7 +26,7 @@
                <svg width="36px" height="36px" viewBox="0 0 48 48"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
             </label >
             <nav>
-               <a href="">Inicio</a>
+               <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}">Personajes</a>
                <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/roles">Roles</a>
                <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/admin">Admin</a>
             </nav>  
