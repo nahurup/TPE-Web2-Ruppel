@@ -39,26 +39,26 @@ body {
     }
 }
 
-.lista {
+.container-lista {
     text-align: center;
 }
 
-.lista-personajes {
+.lista {
     border-top-left-radius: 22px;
     background: #e4e4e4;
     border-top-right-radius: 22px;
 }
 
-.item-personaje {
+.item {
     border-bottom: 1px solid #cacaca;
     padding: 17px;
 }
 
-.item-personaje h2 {
+.item h2 {
     background: #e4e4e4;
 }
 
-.item-personaje h5 {
+.item h5 {
     background: #e9ecef;
     margin-bottom: 0px;
     padding: 4px;
