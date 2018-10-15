@@ -7,7 +7,6 @@
                 <ul class="list-group">
                     {foreach from=$datos item=dato}
                         <h1>{$dato['nombre']}</h1>
-                        <h5>Numero de personajes: {$dato['n_personajes']}</h4>
                         <h5>Descripcion: {$dato['descripcion']}</h4>
                             {foreach from=$personajes item=personaje}
                                 {if $personaje['id_rol'] == {$dato['id']}}

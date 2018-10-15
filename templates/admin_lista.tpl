@@ -1,5 +1,9 @@
 {include file="cabecera.tpl"}
 
+<nav class="submenu">
+    <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/agregarpersonaje">Agregar Personaje</a>
+    <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/agregarrol">Agregar Rol</a>
+</nav>  
 <div class="container" id="container">
     
     <form>
@@ -11,6 +15,8 @@
                         {if $rol['id'] == $personaje['id_rol']}
                             <h1>Nombre: <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/personaje/{$personaje['id']}">{$personaje['nombre']}</a></h1>
                             <h6>Rol: <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/rol/{$rol['id']}">{$rol['nombre']}</a></h1>
+                            <h5><a href="borrarpj/{$personaje['id']}">BORRAR</a></h5>
+                            <h5><a href="editarpj/{$personaje['id']}">EDITAR</a></h5>
                             <h6>Descripción: {$personaje['descripcion']}</h1>
                         {/if}
                     {/foreach}
@@ -18,21 +24,16 @@
             </ul>
         </div>
         <div class="form-group">
-                <h1>Lista roles</h1>
+            <h1>Lista roles</h1>
                 <ul class="list-group">
                     {foreach from=$roles item=rol}
-                      {if $rol['n_personajes'] > 0}
-                        <h1><a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/rol/{$rol['id']}">{$rol['nombre']}</a></h1>
-                        <h5>Desripcion: {$rol['descripcion']}</h5>
-                        <h5>Numero de personajes: {$rol['n_personajes']}</h5>
-                      {else}
-                        <h1><a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/rol/{$rol['id']}">{$rol['nombre']}</a></h1>
-                        <h5>Desripcion: {$rol['descripcion']}</h5>
-                        <h5>Sin personajes dentro</h5>
-                      {/if}
-                    {/foreach}
-              </ul>
-            </div>
+                      <h1><a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/rol/{$rol['id']}">{$rol['nombre']}</a></h1>
+                      <h5><a href="borrarrol/{$rol['id']}">BORRAR</a></h5>
+                      <h5><a href="editarrol/{$rol['id']}">EDITAR</a></h5>
+                      <h5>Desripcion: {$rol['descripcion']}</h5>
+                   {/foreach}
+                </ul>
+        </div>
     </form>
         
 </div>

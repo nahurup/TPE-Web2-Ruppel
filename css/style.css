@@ -216,6 +216,12 @@ header>span {
   }
 }
 
+.submenu {
+    display: block;
+    background: rgb(60, 60, 60);
+    overflow: hidden;
+}
+
 .footer {
     clear: both;
     background-color: #2f2e2e;

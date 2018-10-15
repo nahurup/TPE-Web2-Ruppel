@@ -1,6 +1,7 @@
 <?php
 require_once  "./view/AdminView.php";
 require_once  "./controller/PersonajesController.php";
+require_once  "./controller/RolesController.php";
 
 class AdminController
 {
@@ -22,6 +23,10 @@ class AdminController
   function AgregarPersonaje(){
     $roles = $this->model->GetRoles();
     $this->view->MostrarAgregarPJ($roles);
+  }
+
+  function AgregarRol(){
+    $this->view->MostrarAgregarRol();
   }
   
 }

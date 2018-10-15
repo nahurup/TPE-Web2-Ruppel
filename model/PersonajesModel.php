@@ -33,9 +33,19 @@ class PersonajesModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   
-  function InsertarPersonaje($nombre,$descripcion,$id_rol){
+  function InsertarPersonaje($nombre,$descripcion,$idrol){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
-    $sentencia->execute(array($nombre,$descripcion,$id_rol));
+    $sentencia->execute(array($nombre,$descripcion,$idrol));
+  }
+
+  function BorrarPersonaje($idPj){
+    $sentencia = $this->db->prepare("delete from personaje where id=?");
+    $sentencia->execute(array($idPj));
+  }
+
+  function GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj){
+    $sentencia = $this->db->prepare( "update personaje set nombre = ?, descripcion = ?, id_rol = ? where id=?");
+    $sentencia->execute(array($nombre,$descripcion,$idRol,$idPj));
   }
 }
 

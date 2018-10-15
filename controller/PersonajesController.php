@@ -33,9 +33,31 @@ class PersonajesController
   function InsertarPersonaje(){
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
-    $id_rol = $_POST["rolForm"];
+    $idrol = $_POST["rolForm"];
 
-    $this->model->InsertarPersonaje($nombre,$descripcion,$id_rol);
+    $this->model->InsertarPersonaje($nombre,$descripcion,$idrol);
+
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function BorrarPersonaje($param){
+    $this->model->BorrarPersonaje($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function EditarPersonaje($param){
+    $personaje = $this->model->GetPersonaje($param);
+    $roles = $this->model->GetRoles();
+    $this->view->MostrarEditarPersonaje($personaje[0], $roles);
+  }
+
+  function GuardarEditarPersonaje(){
+    $idPj = $_POST["idForm"];
+    $nombre = $_POST["nombreForm"];
+    $descripcion = $_POST["descripcionForm"];
+    $idRol = $_POST["idrolForm"];
+
+    $this->model->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

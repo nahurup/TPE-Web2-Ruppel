@@ -15,7 +15,8 @@ class RolesController
 
   function Home(){
     $roles = $this->model->GetRoles();
-    $this->view->Mostrar($roles);
+    $personajes = $this->model->GetPersonajes();
+    $this->view->Mostrar($roles, $personajes);
   }
 
   function Rol($param){
@@ -28,6 +29,36 @@ class RolesController
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
   }
+
+  function InsertarRol(){
+    $nombre = $_POST["nombreForm"];
+    $descripcion = $_POST["descripcionForm"];
+
+    $this->model->InsertarRol($nombre,$descripcion);
+
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function BorrarRol($param){
+    $this->model->BorrarRol($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function EditarRol($param){
+    $rol= $this->model->GetRol($param[0]);
+    $this->view->MostrarEditarRol($rol[0]);
+  }
+
+  function GuardarEditarRol(){
+    $idRol = $_POST["idForm"];
+    $nombre = $_POST["nombreForm"];
+    $descripcion = $_POST["descripcionForm"];
+
+    $this->model->GuardarEditarRol($nombre,$descripcion,$idRol);
+
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
 }
 
  ?>

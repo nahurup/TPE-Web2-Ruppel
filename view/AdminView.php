@@ -15,6 +15,11 @@ class AdminView
         $smarty->assign('roles',$roles);
         $smarty->display('templates/agregar_personaje.tpl');
     }
+
+    function MostrarAgregarRol(){
+        $smarty = new Smarty();
+        $smarty->display('templates/agregar_rol.tpl');
+    }
 }
 
 ?>

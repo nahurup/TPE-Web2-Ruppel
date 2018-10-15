@@ -1,8 +1,8 @@
 {include file="cabecera.tpl"}
 
 <div class="container" id="container">
-    <h2>Agregar Personaje</h2>
-    <form method="post" action="insertarpj">
+    <h2>Agregar Rol</h2>
+    <form method="post" action="insertarrol">
         <div class="form-group">
           <label for="nombreForm">Nombre</label>
           <input type="text" class="form-control" id="nombreForm" name="nombreForm">
@@ -10,14 +10,6 @@
         <div class="form-group">
           <label for="descripcionForm">Descripcion</label>
           <input type="text" class="form-control" id="descripcionForm" name="descripcionForm">
-        </div>
-        <div class="form-group">
-          <label for="rolForm">Rol:</label>
-          <select id="rolForm" name="rolForm">
-            {foreach from=$roles item=rol}
-              <option id="rolForm" name="rolForm" value="{$rol['id']}">{$rol['nombre']}</option>
-            {/foreach}
-          </select>
         </div>
         
         <button type="submit" class="btn btn-primary">Añadir</button>
