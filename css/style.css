@@ -12,6 +12,14 @@ body {
     }
 }
 
+@media (min-width: 1751px) {
+    body {
+        background: #ffffff;
+        width: 1751px;
+        margin: 0 auto;
+    }
+}
+
 .container {
     width: 100%;
     padding-right: 15px;
@@ -66,6 +74,8 @@ body {
 
 .form-group {
     margin-bottom: 0rem;
+    max-width: 500px;
+    padding: 4px;
 }
 
 .cenblock {
