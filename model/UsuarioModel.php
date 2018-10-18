@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class UsuarioModel
 {
   private $db;
@@ -36,5 +34,4 @@ class UsuarioModel
 
 }
 
-
- ?>
+?>

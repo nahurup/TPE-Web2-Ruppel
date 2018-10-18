@@ -7,7 +7,6 @@ class RolesView
     $smarty = new Smarty();
     $smarty->assign('roles',$roles);
     $smarty->assign('personajes',$personajes);
-    //$smarty->debugging = true;
     $smarty->display('templates/lista_roles.tpl');
   }
 
@@ -15,7 +14,6 @@ class RolesView
     $smarty = new Smarty();
     $smarty->assign('datos',$datos);
     $smarty->assign('personajes',$personajes);
-    //$smarty->debugging = true;
     $smarty->display('templates/rol.tpl');
   }
 
@@ -23,8 +21,6 @@ class RolesView
     $smarty = new Smarty();
     $smarty->assign('rol',$rol);
     $smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-    //$smarty->debugging = true;
     $smarty->display('templates/editar_rol.tpl');
   }
 }

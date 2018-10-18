@@ -9,9 +9,9 @@ class SecuredController
     session_start();
     if(isset($_SESSION["User"])){
       if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-        $this->logout(); // destruye la sesión, y vuelve al login
+        $this->logout();
       }
-        $_SESSION['LAST_ACTIVITY'] = time(); // actualiza el último instante de actividad
+        $_SESSION['LAST_ACTIVITY'] = time();
     }else{
         header(LOGIN);
     }

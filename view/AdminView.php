@@ -6,7 +6,6 @@ class AdminView
         $smarty = new Smarty();
         $smarty->assign('personajes',$personajes);
         $smarty->assign('roles',$roles);
-        //$smarty->debugging = true;
         $smarty->display('templates/admin_lista.tpl');
     }
 
@@ -28,7 +27,7 @@ class AdminView
 
     function mostrarLogin($message = ''){
         $smarty = new Smarty();
-        $smarty->assign('Message',$message); // El 'Titulo' del assign puede ser cualquier valor
+        $smarty->assign('Message',$message);
         $smarty->display('templates/login.tpl');
     }
 }

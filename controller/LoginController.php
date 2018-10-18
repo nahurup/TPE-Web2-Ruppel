@@ -8,13 +8,11 @@ class LoginController
 {
   private $view;
   private $model;
-  private $Titulo;
 
   function __construct()
   {
     $this->view = new LoginView();
     $this->model = new UsuarioModel();
-    $this->Titulo = "Login";
   }
 
   function login(){
@@ -36,7 +34,6 @@ class LoginController
 
       if(isset($dbUser)){
           if (password_verify($pass, $dbUser[0]["password"])){
-              //mostrar admin
               session_start();
               $_SESSION["User"] = $user;
               header(ADMIN);
@@ -45,7 +42,6 @@ class LoginController
 
           }
       }else{
-        //No existe el usario
         $this->view->mostrarLogin("No existe el usario");
       }
 

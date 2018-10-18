@@ -27,7 +27,6 @@ class ConfigApp
       'guardarEditarRol'=> 'RolesController#GuardarEditarRol',
       'editarpj'=> 'PersonajesController#EditarPersonaje',
       'guardareditarpj'=> 'PersonajesController#GuardarEditarPersonaje',
-      'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarlogin' => 'LoginController#verificarLogin'

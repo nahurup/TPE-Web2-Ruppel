@@ -7,7 +7,6 @@ class PersonajesView
     $smarty = new Smarty();
     $smarty->assign('personajes',$personajes);
     $smarty->assign('roles',$roles);
-    //$smarty->debugging = true;
     $smarty->display('templates/lista_personajes.tpl');
   }
 
@@ -15,7 +14,6 @@ class PersonajesView
     $smarty = new Smarty();
     $smarty->assign('datos',$datos);
     $smarty->assign('roles',$roles);
-    //$smarty->debugging = true;
     $smarty->display('templates/personaje.tpl');
   }
 
@@ -24,8 +22,6 @@ class PersonajesView
     $smarty->assign('personaje',$personaje);
     $smarty->assign('roles',$roles);
     $smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-    //$smarty->debugging = true;
     $smarty->display('templates/editar_personaje.tpl');
   }
 }
