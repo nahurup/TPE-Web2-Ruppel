@@ -266,7 +266,11 @@ header>span {
 }
 
 @media only screen and (max-width: 768px) {
-  .menu {background: rgba(0,0,0,0.3);}
+    .menu {
+        background: rgb(60, 60, 60);
+        height: 68px;
+    }
+        
   .menu .drop {display: inline-block;}/*volvemos a mostrar el botón*/
   .menu nav {/*ahora nuestro menú es una lista flotante*/
       position: absolute;

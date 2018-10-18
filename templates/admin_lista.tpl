@@ -1,13 +1,6 @@
 {include file="cabecera.tpl"}
+{include file="admin_submenu.tpl"}
 
-<div class="submenu">
-    <nav>
-        <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/agregarpersonaje">Agregar Personaje</a>
-        <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/agregarrol">Agregar Rol</a>
-        <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/agregarusuario">Agregar Usuario</a>
-        <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/logout">Logout</a>
-    </nav> 
-</div>  
 <div class="container" id="container">
     <div class="row">
         <div class="col">
