@@ -1,7 +1,7 @@
 {include file="cabecera.tpl"}
     <div class="container">
       <h2>Editar Personaje</h2>
-      <form method="post" action="{$home}/guardareditarpj">
+      <form method="post" action="guardareditarpj">
         <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$personaje["id"]}">
         <div class="form-group">
           <label for="nombreForm">Nombre</label>

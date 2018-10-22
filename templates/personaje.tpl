@@ -8,7 +8,7 @@
                 <div class="item">
                     {foreach from=$roles item=rol}
                         {if $rol['id'] == {$dato['id_rol']}}
-                            <h4>Rol: <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/rol/{$rol['id']}">{$rol['nombre']}</a></h4>
+                            <h4>Rol: <a href="rol/{$rol['id']}">{$rol['nombre']}</a></h4>
                         {/if}
                     {/foreach}
                     <h4>Descripcion: {$dato['descripcion']}</h4>

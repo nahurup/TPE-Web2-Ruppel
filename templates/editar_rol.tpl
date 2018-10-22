@@ -1,7 +1,7 @@
 {include file="cabecera.tpl"}
     <div class="container">
       <h2>Editar Rol</h2>
-      <form method="post" action="{$home}/guardarEditarRol">
+      <form method="post" action="guardarEditarRol">
         <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$rol["id"]}">
         <div class="form-group">
           <label for="nombreForm">Nombre</label>

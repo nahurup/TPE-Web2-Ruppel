@@ -21,7 +21,6 @@ class PersonajesView
     $smarty = new Smarty();
     $smarty->assign('personaje',$personaje);
     $smarty->assign('roles',$roles);
-    $smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     $smarty->display('templates/editar_personaje.tpl');
   }
 }

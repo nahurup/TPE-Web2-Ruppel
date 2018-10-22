@@ -9,7 +9,7 @@
                 {foreach from=$personajes item=personaje}
                     {if $personaje['id_rol'] == {$dato['id']}}
                         <div class="item">
-                            <h1>Nombre: <a href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/personaje/{$personaje['id']}">{$personaje['nombre']}</a></h1>
+                            <h1>Nombre: <a href="personaje/{$personaje['id']}">{$personaje['nombre']}</a></h1>
                             <h5>Descripcion: {$personaje['descripcion']}</h4>
                         </div>
                     {/if}
