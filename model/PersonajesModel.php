@@ -10,9 +10,7 @@ class PersonajesModel
   }
 
   function Connect(){
-    return new PDO('mysql:host=localhost;'
-    .'dbname=db_overwatch;charset=utf8'
-    , 'root', '');
+    return new PDO('mysql:host='.HOST.'; dbname='.DBNOMBRE';charset=utf8', USER, PASS);
   }
 
   function GetPersonajes(){
