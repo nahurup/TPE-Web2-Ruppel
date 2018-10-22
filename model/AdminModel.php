@@ -10,7 +10,7 @@ class AdminModel
   }
 
   function Connect(){
-    return new PDO('mysql:host='.HOST.'; dbname='.DBNOMBRE';charset=utf8', USER, PASS);
+    return new PDO('mysql:host='.HOST.'; dbname='.DBNOMBRE.';charset=utf8', USER, PASS);
   }
 
   function GetUsuario(){
