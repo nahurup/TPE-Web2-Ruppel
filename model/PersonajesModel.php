@@ -24,12 +24,6 @@ class PersonajesModel
     $sentencia->execute($idPersonaje);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-
-  function GetRoles(){
-    $sentencia = $this->db->prepare("select * from rol");
-    $sentencia->execute();
-    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  }
   
   function InsertarPersonaje($nombre,$descripcion,$idrol){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");

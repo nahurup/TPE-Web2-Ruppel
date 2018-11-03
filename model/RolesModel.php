@@ -19,12 +19,6 @@ class RolesModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function GetPersonajes(){
-    $sentencia = $this->db->prepare("select * from personaje");
-    $sentencia->execute();
-    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  }
-
   function GetRol($idRol){
     $sentencia = $this->db->prepare("select * from rol where id=?");
     $sentencia->execute($idRol);

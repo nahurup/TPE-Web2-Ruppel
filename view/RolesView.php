@@ -17,12 +17,6 @@ class RolesView
     $smarty->display('templates/rol.tpl');
   }
 
-  function MostrarEditarRol($rol){
-    $smarty = new Smarty();
-    $smarty->assign('rol',$rol);
-    $smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-    $smarty->display('templates/editar_rol.tpl');
-  }
 }
 
 ?>

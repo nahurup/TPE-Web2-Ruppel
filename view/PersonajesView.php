@@ -16,13 +16,6 @@ class PersonajesView
     $smarty->assign('roles',$roles);
     $smarty->display('templates/personaje.tpl');
   }
-
-  function MostrarEditarPersonaje($personaje, $roles){
-    $smarty = new Smarty();
-    $smarty->assign('personaje',$personaje);
-    $smarty->assign('roles',$roles);
-    $smarty->display('templates/editar_personaje.tpl');
-  }
 }
 
 ?>
