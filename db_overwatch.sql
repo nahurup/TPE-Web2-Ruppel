@@ -99,14 +99,14 @@ INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(15) NOT NULL,
-  `password` varchar(300) NOT NULL
+  `pass` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `password`) VALUES
+INSERT INTO `usuario` (`id`, `nombre`, `pass`) VALUES
 (1, 'admin', '$2y$10$Azi/8EPj6QaWys2Q4Bmyeenp.nv8dGeuION/SRj8Rvb2gWn0HF8Zq'),
 (2, 'admin2', '$2y$10$BnxoeE3nc5zpaD.FZSDKmeTZcNU/t01A.4887Tmzc4Bf3N7RZoVHC');
 

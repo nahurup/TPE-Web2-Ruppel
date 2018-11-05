@@ -26,6 +26,7 @@
       <nav>
         <a href="">Personajes</a>
         <a href="roles">Roles</a>
+        <a href="registrar">Registrar</a>
         <a href="admin">Admin</a>
       </nav>  
     </div>

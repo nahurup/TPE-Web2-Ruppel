@@ -19,9 +19,9 @@ class UsuarioModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertarUsuario($nombre, $pass){
+  function InsertarUsuario($nombre, $password){
     $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, pass) VALUES(?,?)");
-    $sentencia->execute(array($nombre, $pass));
+    $sentencia->execute(array($nombre, $password));
   }
 
   function GetUser($user){

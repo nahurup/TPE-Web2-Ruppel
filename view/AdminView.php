@@ -38,12 +38,6 @@ class AdminView
         $smarty = new Smarty();
         $smarty->display('templates/agregar_usuario.tpl');
     }
-
-    function mostrarLogin($message = ''){
-        $smarty = new Smarty();
-        $smarty->assign('Message',$message);
-        $smarty->display('templates/login.tpl');
-    }
 }
 
 ?>

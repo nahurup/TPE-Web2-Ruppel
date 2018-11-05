@@ -43,7 +43,7 @@ class AdminController extends SecuredController
   }
 
   function BorrarPersonaje($param){
-    $this->modelpersonajes->BorrarPersonaje($param);
+    $this->modelpersonajes->BorrarPersonaje($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
@@ -74,7 +74,7 @@ class AdminController extends SecuredController
   }
 
   function BorrarRol($param){
-    $this->modelroles->BorrarRol($param);
+    $this->modelroles->BorrarRol($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 

@@ -20,7 +20,7 @@ class AdminModel
   }
 
   function InsertarUsuario($nombre, $password){
-    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, password) VALUES(?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, pass) VALUES(?,?)");
     $sentencia->execute(array($nombre, $password));
   }
 

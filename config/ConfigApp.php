@@ -32,7 +32,9 @@ class ConfigApp
       'insertarusuario'=> 'AdminController#InsertarUsuario',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
-      'verificarlogin' => 'LoginController#verificarLogin'
+      'verificarlogin' => 'LoginController#verificarLogin',
+      'registrar'=> 'LoginController#Registrar',
+      'registrarusuario' => 'LoginController#registrarUsuario'
     ];
 
 }

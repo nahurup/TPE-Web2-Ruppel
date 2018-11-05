@@ -3,7 +3,6 @@
 require_once  "./view/LoginView.php";
 require_once  "./model/UsuarioModel.php";
 
-
 class LoginController
 {
   private $view;
@@ -16,9 +15,11 @@ class LoginController
   }
 
   function login(){
-
     $this->view->mostrarLogin();
+  }
 
+  function Registrar(){
+    $this->view->mostrarRegistrar();
   }
 
   function logout(){
@@ -39,7 +40,6 @@ class LoginController
               header(ADMIN);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
-
           }
       }else{
         $this->view->mostrarLogin("No existe el usario");
@@ -47,6 +47,17 @@ class LoginController
 
   }
 
+  function registrarUsuario(){
+    $usuario = $_POST["usuarioForm"];
+    $pass = $_POST["passwordId"];
+    $hash = password_hash($pass, PASSWORD_DEFAULT);
+    $password = $hash;
+
+    $this->model->InsertarUsuario($usuario,$password);
+
+    header(HOME);
+  }
+
 }
 
- ?>
+?>

@@ -8,14 +8,17 @@ class LoginView
     $this->Smarty = new Smarty();
   }
 
-
   function mostrarLogin($message = ''){
-
     $this->Smarty->assign('Titulo',"Login");
     $this->Smarty->assign('Message',$message);
-
     $this->Smarty->display('templates/login.tpl');
   }
+
+  function mostrarRegistrar(){
+    $smarty = new Smarty();
+    $smarty->display('templates/registrar.tpl');
+  }
+
 }
 
  ?>
