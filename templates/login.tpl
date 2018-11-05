@@ -4,12 +4,12 @@
     <h2>Login</h2>
     <form method="post" action="verificarlogin">
         <div class="form-group">
-            <label for="usuarioId">Usuario</label>
-            <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Usuario">
+            <label for="usuarioForm">Usuario</label>
+            <input type="input" class="form-control" name="usuarioForm" id="usuarioForm" aria-describedby="usuarioForm" placeholder="Usuario">
         </div>
         <div class="form-group">
-            <label for="passwordId">Password</label>
-            <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password">
+            <label for="passwordForm">Password</label>
+            <input type="password" class="form-control" name="passwordForm" id="passwordForm" placeholder="Password">
         </div>
         <div class="">{$Message}</div>
       <button type="submit" class="btn btn-primary">Login</button>

@@ -28,8 +28,6 @@ class ConfigApp
       'borrarrol'=> 'AdminController#BorrarRol',
       'editarrol'=> 'AdminController#EditarRol',
       'guardarEditarRol'=> 'AdminController#GuardarEditarRol',
-      'agregarusuario'=> 'AdminController#AgregarUsuario',
-      'insertarusuario'=> 'AdminController#InsertarUsuario',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarlogin' => 'LoginController#verificarLogin',

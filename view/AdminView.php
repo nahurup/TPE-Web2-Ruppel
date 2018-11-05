@@ -32,11 +32,6 @@ class AdminView
         $smarty->assign('rol',$rol);
         $smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
         $smarty->display('templates/editar_rol.tpl');
-      }
-
-    function MostrarAgregarUsuario(){
-        $smarty = new Smarty();
-        $smarty->display('templates/agregar_usuario.tpl');
     }
 }
 

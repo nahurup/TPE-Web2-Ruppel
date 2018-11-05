@@ -96,21 +96,6 @@ class AdminController extends SecuredController
   function AgregarRol(){
     $this->view->MostrarAgregarRol();
   }
-
-  function AgregarUsuario(){
-    $this->view->MostrarAgregarUsuario();
-  }
-
-  function InsertarUsuario(){
-    $usuario = $_POST["usuarioForm"];
-    $pass = $_POST["passwordId"];
-    $hash = password_hash($pass, PASSWORD_DEFAULT);
-    $password = $hash;
-
-    $this->model->InsertarUsuario($usuario,$password);
-
-    header(ADMIN);
-  }
   
 }
 

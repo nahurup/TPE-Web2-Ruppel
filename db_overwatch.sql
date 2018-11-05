@@ -99,7 +99,8 @@ INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(15) NOT NULL,
-  `pass` varchar(300) NOT NULL
+  `pass` varchar(300) NOT NULL,
+  `admin` BOOLEAN NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

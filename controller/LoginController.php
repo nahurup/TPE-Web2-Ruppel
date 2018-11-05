@@ -29,12 +29,12 @@ class LoginController
   }
 
   function verificarLogin(){
-      $user = $_POST["usuarioId"];
-      $pass = $_POST["passwordId"];
+      $user = $_POST["usuarioForm"];
+      $pass = $_POST["passwordForm"];
       $dbUser = $this->model->getUser($user);
 
       if(isset($dbUser)){
-          if (password_verify($pass, $dbUser[0]["password"])){
+          if (password_verify($pass, $dbUser[0]["pass"])){
               session_start();
               $_SESSION["User"] = $user;
               header(ADMIN);
@@ -49,13 +49,12 @@ class LoginController
 
   function registrarUsuario(){
     $usuario = $_POST["usuarioForm"];
-    $pass = $_POST["passwordId"];
+    $pass = $_POST["passwordForm"];
     $hash = password_hash($pass, PASSWORD_DEFAULT);
     $password = $hash;
 
     $this->model->InsertarUsuario($usuario,$password);
-
-    header(HOME);
+    $this->verificarLogin();
   }
 
 }
