@@ -9,6 +9,12 @@ class AdminView
         $smarty->display('templates/admin_lista.tpl');
     }
 
+    function MostrarUsuarios($usuarios){
+        $smarty = new Smarty();
+        $smarty->assign('usuarios',$usuarios);
+        $smarty->display('templates/usuarios.tpl');
+    }
+
     function MostrarAgregarPJ($roles){
         $smarty = new Smarty();
         $smarty->assign('roles',$roles);

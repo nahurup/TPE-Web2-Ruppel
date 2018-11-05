@@ -1,6 +1,6 @@
 <?php
 require_once  "./view/AdminView.php";
-require_once  "./model/AdminModel.php";
+require_once  "./model/UsuarioModel.php";
 require_once  "./controller/PersonajesController.php";
 require_once  "./controller/RolesController.php";
 require_once  "SecuredController.php";
@@ -8,7 +8,7 @@ require_once  "SecuredController.php";
 class AdminController extends SecuredController
 {
   private $view;
-  private $model;
+  private $modelusuarios;
   private $modelpersonajes;
   private $modelroles;
 
@@ -18,7 +18,7 @@ class AdminController extends SecuredController
     $this->view = new AdminView();
     $this->modelpersonajes = new PersonajesModel();
     $this->modelroles = new RolesModel();
-    $this->model = new AdminModel();
+    $this->modelusuarios = new UsuarioModel();
   }
 
   function Home(){
@@ -95,6 +95,11 @@ class AdminController extends SecuredController
 
   function AgregarRol(){
     $this->view->MostrarAgregarRol();
+  }
+
+  function MostrarUsuarios(){
+    $usuarios= $this->modelusuarios->GetUsuarios();
+    $this->view->MostrarUsuarios($usuarios);
   }
   
 }

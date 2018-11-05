@@ -13,7 +13,7 @@ class UsuarioModel
     return new PDO('mysql:host='.HOST.'; dbname='.DBNOMBRE.';charset=utf8', USER, PASS);
   }
 
-  function GetUsuario(){
+  function GetUsuarios(){
     $sentencia = $this->db->prepare("select * from usuario");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
