@@ -12,6 +12,9 @@
                         {/if}
                     {/foreach}
                     <h4>Descripcion: {$dato['descripcion']}</h4>
+                    {if $dato['img'] != ''}
+                        <img src="{$dato['img']}" alt="{$dato['nombre']}">
+                    {/if}
                 </div>
             </ul>
         {/foreach}       

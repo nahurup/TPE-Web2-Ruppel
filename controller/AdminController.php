@@ -48,6 +48,11 @@ class AdminController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
+  function BorrarImagen($param){
+    $this->modelpersonajes->BorrarImagen($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
   function EditarPersonaje($param){
     $personaje = $this->modelpersonajes->GetPersonaje($param);
     $roles = $this->modelroles->GetRoles();
