@@ -24,10 +24,25 @@ class PersonajesModel
     $sentencia->execute($idPersonaje);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  private function subirImagen($imagen){
+    $destino_final = 'img/' . uniqid() . '.jpg';
+    echo "destino_final: ".$destino_final;
+    move_uploaded_file($imagen, $destino_final);
+    return $destino_final;
+  }
+
+  private function asignarImagen($path, $lastId){
+    $sentencia = $this->db->prepare("update personaje set img = ? where id=?");
+    $sentencia->execute(array($path,$lastId));
+  }
   
-  function InsertarPersonaje($nombre,$descripcion,$idrol){
+  function InsertarPersonaje($nombre,$descripcion,$idrol,$tempPath){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
     $sentencia->execute(array($nombre,$descripcion,$idrol));
+    $path = $this->subirImagen($tempPath);
+    $lastId = $this->db->lastInsertId();
+    $this->asignarImagen($path, $lastId);
   }
 
   function BorrarPersonaje($idPj){

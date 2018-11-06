@@ -32,6 +32,7 @@ CREATE TABLE `personaje` (
   `id` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
   `id_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
