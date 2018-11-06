@@ -30,6 +30,21 @@ class UsuarioModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function BorrarUsuario($id){
+    $sentencia = $this->db->prepare("delete from usuario where id=?");
+    $sentencia->execute(array($id));
+  }
+
+  function DarAdmin($id){
+    $sentencia = $this->db->prepare("update usuario set admin = 1 where id=?");
+    $sentencia->execute(array($id));
+  }
+
+  function QuitarAdmin($id){
+    $sentencia = $this->db->prepare("update usuario set admin = 0 where id=?");
+    $sentencia->execute(array($id));
+  }
+
 }
 
 ?>

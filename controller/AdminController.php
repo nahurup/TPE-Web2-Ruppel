@@ -101,6 +101,21 @@ class AdminController extends SecuredController
     $usuarios= $this->modelusuarios->GetUsuarios();
     $this->view->MostrarUsuarios($usuarios);
   }
+
+  function BorrarUsuario($param){
+    $this->modelusuarios->BorrarUsuario($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function DarAdmin($param){
+    $this->modelusuarios->DarAdmin($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function QuitarAdmin($param){
+    $this->modelusuarios->QuitarAdmin($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
   
 }
 
