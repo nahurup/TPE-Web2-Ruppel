@@ -2,19 +2,19 @@
 
 <div class="container container-lista" id="container">
     <form>
-        {foreach from=$datos item=dato}
-            <h1>{$dato['nombre']}</h1>
+        {foreach from=$personajes item=personaje}
+            <h1>{$personaje['nombre']}</h1>
             <ul class="list-group lista">
                 <div class="item">
                     {foreach from=$roles item=rol}
-                        {if $rol['id'] == {$dato['id_rol']}}
+                        {if $rol['id'] == {$personaje['id_rol']}}
                             <h4>Rol: <a href="rol/{$rol['id']}">{$rol['nombre']}</a></h4>
                         {/if}
                     {/foreach}
-                    <h4>Descripcion: {$dato['descripcion']}</h4>
-                    {if $dato['img'] != ''}
-                        <img src="{$dato['img']}" alt="{$dato['nombre']}">
-                    {/if}
+                    <h4>Descripcion: {$personaje['descripcion']}</h4>
+                    {foreach from=$imagenes item=imagen}
+                        <img src="{$imagen['src']}" alt="{$personaje['nombre']}">
+                    {/foreach} 
                 </div>
             </ul>
         {/foreach}       

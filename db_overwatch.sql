@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2018 a las 18:42:29
+-- Tiempo de generación: 07-11-2018 a las 01:14:23
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -25,6 +25,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE `imagen` (
+  `src` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_pj` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `personaje`
 --
 
@@ -32,7 +44,6 @@ CREATE TABLE `personaje` (
   `id` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
   `id_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -101,26 +112,35 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `pass` varchar(300) NOT NULL,
-  `admin` BOOLEAN NOT NULL
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `pass`) VALUES
-(1, 'admin', '$2y$10$Azi/8EPj6QaWys2Q4Bmyeenp.nv8dGeuION/SRj8Rvb2gWn0HF8Zq'),
-(2, 'admin2', '$2y$10$BnxoeE3nc5zpaD.FZSDKmeTZcNU/t01A.4887Tmzc4Bf3N7RZoVHC');
+INSERT INTO `usuario` (`id`, `nombre`, `pass`, `admin`) VALUES
+(1, 'admin', '$2y$10$Azi/8EPj6QaWys2Q4Bmyeenp.nv8dGeuION/SRj8Rvb2gWn0HF8Zq', 1),
+(2, 'admin2', '$2y$10$BnxoeE3nc5zpaD.FZSDKmeTZcNU/t01A.4887Tmzc4Bf3N7RZoVHC', 1),
+(4, 'usuario', '$2y$10$YlbYWVqX14/nOZjNjlwfqO2jb6QjLIJXvOd4yFI6jgPfG1XJYcQM.', 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pj` (`id_pj`);
+
+--
 -- Indices de la tabla `personaje`
 --
 ALTER TABLE `personaje`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_rol` (`id_rol`);
 
 --
 -- Indices de la tabla `rol`
@@ -139,6 +159,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `personaje`
 --
 ALTER TABLE `personaje`
@@ -154,7 +180,23 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD CONSTRAINT `imagen_ibfk_1` FOREIGN KEY (`id_pj`) REFERENCES `personaje` (`id`);
+
+--
+-- Filtros para la tabla `personaje`
+--
+ALTER TABLE `personaje`
+  ADD CONSTRAINT `personaje_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

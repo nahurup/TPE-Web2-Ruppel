@@ -25,6 +25,12 @@ class PersonajesModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function GetImagenes($idPersonaje){
+    $sentencia = $this->db->prepare("select * from imagen where id_pj=?");
+    $sentencia->execute($idPersonaje);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   private function subirImagen($imagen){
     $destino_final = 'img/' . uniqid() . '.jpg';
     echo "destino_final: ".$destino_final;
@@ -33,7 +39,7 @@ class PersonajesModel
   }
 
   private function asignarImagen($path, $lastId){
-    $sentencia = $this->db->prepare("update personaje set img = ? where id=?");
+    $sentencia = $this->db->prepare("INSERT INTO imagen(src, id_pj) VALUES(?,?)");
     $sentencia->execute(array($path,$lastId));
   }
   
