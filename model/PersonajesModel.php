@@ -46,9 +46,12 @@ class PersonajesModel
   function InsertarPersonaje($nombre,$descripcion,$idrol,$tempPath){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
     $sentencia->execute(array($nombre,$descripcion,$idrol));
-    $path = $this->subirImagen($tempPath);
     $lastId = $this->db->lastInsertId();
-    $this->asignarImagen($path, $lastId);
+    for ($i = 0; $i < count($tempPath); $i++) {
+      $path = $this->subirImagen($tempPath[$i]);
+      $this->asignarImagen($path, $lastId);
+    }
+    
   }
 
   function BorrarPersonaje($idPj){

@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label for="imagen">Imagen</label>
-          <input type="file" id="imagenes" name="imagenes[]">
+          <input type="file" id="imagenes" name="imagenes[]" multiple/>
         </div>
         <div class="form-group">
           <label for="rolForm">Rol:</label>

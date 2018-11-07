@@ -37,7 +37,7 @@ class LoginController
           if (password_verify($pass, $dbUser[0]["pass"])){
               session_start();
               $_SESSION["User"] = $user;
-              header(ADMIN);
+              header(HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
           }

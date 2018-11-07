@@ -27,7 +27,12 @@
         <a href="">Personajes</a>
         <a href="roles">Roles</a>
         <a href="registrar">Registrar</a>
+        <a href="login">Login</a>
         <a href="admin">Admin</a>
+        
+        {if $logged}
+          <a href="logout">Logout</a>
+        {/if}
       </nav>  
     </div>
 </div>

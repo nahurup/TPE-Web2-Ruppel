@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2018 a las 01:14:23
+-- Tiempo de generación: 07-11-2018 a las 19:59:27
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -33,6 +33,14 @@ CREATE TABLE `imagen` (
   `id` int(11) NOT NULL,
   `id_pj` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `imagen`
+--
+
+INSERT INTO `imagen` (`src`, `id`, `id_pj`) VALUES
+('img/5be31a21a88b0.jpg', 15, 46),
+('img/5be31a21adab9.jpg', 16, 46);
 
 -- --------------------------------------------------------
 
@@ -79,7 +87,8 @@ INSERT INTO `personaje` (`id`, `nombre`, `descripcion`, `id_rol`) VALUES
 (33, 'Lúcio', 'En el campo de batalla, el sofisticado amplificador sónico de Lúcio golpea a los enemigos con proyectiles y repele a los rivales con descargas de sonido. Sus canciones pueden curar o aumentar la velocidad de movimiento de su equipo, y puede cambiar de can', 7),
 (34, 'Mercy', 'El traje Valkyrie de Mercy la ayuda a mantenerse cerca de sus compañeros de equipo cual ángel de la guarda, y los sana, los resucita o los fortalece con el haz que emana de su bastón caduceo.', 7),
 (35, 'Moira', 'Las habilidades bióticas de Moira le permiten sanar e infligir daño, según la situación lo requiera. Mientras Rayo biótico otorga a Moira recursos para combatir a corto alcance, Orbe biótico le permite sanar e infligir daño desde una distancia mayor. Moir', 7),
-(36, 'Zenyatta', 'Zenyatta se sirve de orbes de armonía y discordia para sanar a sus compañeros de equipo y debilitar a los oponentes, y siempre busca un estado de trascendencia que lo hace inmune al daño.', 7);
+(36, 'Zenyatta', 'Zenyatta se sirve de orbes de armonía y discordia para sanar a sus compañeros de equipo y debilitar a los oponentes, y siempre busca un estado de trascendencia que lo hace inmune al daño.', 7),
+(46, 'jutytyj', 'teee', 6);
 
 -- --------------------------------------------------------
 
@@ -122,7 +131,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `nombre`, `pass`, `admin`) VALUES
 (1, 'admin', '$2y$10$Azi/8EPj6QaWys2Q4Bmyeenp.nv8dGeuION/SRj8Rvb2gWn0HF8Zq', 1),
 (2, 'admin2', '$2y$10$BnxoeE3nc5zpaD.FZSDKmeTZcNU/t01A.4887Tmzc4Bf3N7RZoVHC', 1),
-(4, 'usuario', '$2y$10$YlbYWVqX14/nOZjNjlwfqO2jb6QjLIJXvOd4yFI6jgPfG1XJYcQM.', 0);
+(5, 'usuario', '$2y$10$bC/l2ObAeLXRXkMwEN2.luAr.Npx4uOxO3cB1IGgL.nle8c6bmHTi', 0);
 
 --
 -- Índices para tablas volcadas
@@ -162,13 +171,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `personaje`
 --
 ALTER TABLE `personaje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -180,7 +189,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

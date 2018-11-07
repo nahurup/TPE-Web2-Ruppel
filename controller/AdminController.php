@@ -38,7 +38,7 @@ class AdminController extends SecuredController
     $idrol = $_POST["rolForm"];
     $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-    $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol, $rutaTempImagenes[0]);
+    $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol, $rutaTempImagenes);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
