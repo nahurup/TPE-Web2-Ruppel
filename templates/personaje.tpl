@@ -19,6 +19,6 @@
             </ul>
         {/foreach}       
     </form> 
+    {include file="comentarios.tpl"}
 </div>
-
 {include file="footer.tpl"}

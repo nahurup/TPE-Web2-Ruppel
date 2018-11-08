@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2018 a las 19:59:27
+-- Tiempo de generación: 08-11-2018 a las 18:46:56
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_overwatch`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id` int(11) NOT NULL,
+  `id_pj` int(11) NOT NULL,
+  `id_autor` int(11) NOT NULL,
+  `puntaje` int(11) NOT NULL,
+  `contenido` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,6 +152,14 @@ INSERT INTO `usuario` (`id`, `nombre`, `pass`, `admin`) VALUES
 --
 
 --
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pj` (`id_pj`),
+  ADD KEY `id_autor` (`id_autor`);
+
+--
 -- Indices de la tabla `imagen`
 --
 ALTER TABLE `imagen`
@@ -168,6 +190,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
@@ -194,6 +222,13 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_pj`) REFERENCES `personaje` (`id`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `imagen`
