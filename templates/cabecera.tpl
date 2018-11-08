@@ -29,10 +29,7 @@
         <a href="registrar">Registrar</a>
         <a href="login">Login</a>
         <a href="admin">Admin</a>
-        
-        {if $logged}
-          <a href="logout">Logout</a>
-        {/if}
+        <a href="logout">Logout</a>
       </nav>  
     </div>
 </div>
