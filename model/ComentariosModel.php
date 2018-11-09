@@ -26,18 +26,12 @@ class ComentariosModel
   }
   
   function InsertarComentario($id_pj,$id_autor,$puntaje,$contenido){
-    $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
-    $sentencia->execute(array($nombre,$descripcion,$idrol));
-    $lastId = $this->db->lastInsertId();
-    for ($i = 0; $i < count($tempPath); $i++) {
-      $path = $this->subirImagen($tempPath[$i]);
-      $this->asignarImagen($path, $lastId);
-    }
-    
+    $sentencia = $this->db->prepare("INSERT INTO comentario(id_pj, id_autor, puntaje, contenido) VALUES(?,?,?,?)");
+    $sentencia->execute(array($id_pj,$id_autor,$puntaje,$contenido));
   }
 
-  function BorrarPersonaje($idPj){
-    $sentencia = $this->db->prepare("delete from personaje where id=?");
+  function BorrarComentario($id){
+    $sentencia = $this->db->prepare("delete from comentario where id=?");
     $sentencia->execute(array($idPj));
   }
 }
