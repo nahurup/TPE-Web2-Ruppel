@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2018 a las 18:46:56
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 5.6.37
+-- Tiempo de generación: 10-11-2018 a las 20:22:34
+-- Versión del servidor: 10.1.32-MariaDB
+-- Versión de PHP: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,6 +35,16 @@ CREATE TABLE `comentario` (
   `puntaje` int(11) NOT NULL,
   `contenido` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id`, `id_pj`, `id_autor`, `puntaje`, `contenido`) VALUES
+(1, 17, 2, 4, 'huyguybu'),
+(2, 34, 1, 2, 'mjnjinini'),
+(3, 14, 5, 4, 'probando api'),
+(4, 15, 5, 1, 'probando api2');
 
 -- --------------------------------------------------------
 
@@ -193,7 +203,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
