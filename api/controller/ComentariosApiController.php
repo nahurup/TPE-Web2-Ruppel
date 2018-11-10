@@ -20,11 +20,11 @@ class ComentariosApiController extends Api{
     }else{
       $data = $this->model->GetComentarios();
     }
-      if(isset($data)){
-        return $this->json_response($data, 200);
-      }else{
-        return $this->json_response(null, 404);
-      }
+    if(isset($data)){
+      return $this->json_response($data, 200);
+    }else{
+      return $this->json_response(null, 404);
+    }
   }
 
   function BorrarComentario($param = null){
@@ -43,7 +43,7 @@ class ComentariosApiController extends Api{
 
   function InsertarComentario($param = null){
     $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertarComentario($objetoJson->id_pj, $objetoJson->id_autor, $objetoJson->puntaje, $objetoJson->contenido);
+    $r = $this->model->InsertarComentario($objetoJson->id_pj,$objetoJson->id_autor,$objetoJson->puntaje,$objetoJson->contenido);
 
     return $this->json_response($r, 200);
   }

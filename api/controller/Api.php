@@ -24,9 +24,9 @@ class Api{
      return ($status[$code])? $status[$code] : $status[500];
    }
 
-   function getJSONData(){
+  function getJSONData(){
     return json_decode($this->data);
   }
 
 }
- ?>
+?>

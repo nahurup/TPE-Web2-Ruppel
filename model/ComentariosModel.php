@@ -21,7 +21,7 @@ class ComentariosModel
 
   function GetComentario($id){
     $sentencia = $this->db->prepare("select * from comentario where id=?");
-    $sentencia->execute($id);
+    $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   
