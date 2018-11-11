@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2018 a las 20:22:34
+-- Tiempo de generación: 10-11-2018 a las 23:27:41
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -31,20 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `comentario` (
   `id` int(11) NOT NULL,
   `id_pj` int(11) NOT NULL,
-  `id_autor` int(11) NOT NULL,
+  `autor` varchar(300) NOT NULL,
   `puntaje` int(11) NOT NULL,
   `contenido` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `comentario`
---
-
-INSERT INTO `comentario` (`id`, `id_pj`, `id_autor`, `puntaje`, `contenido`) VALUES
-(1, 17, 2, 4, 'huyguybu'),
-(2, 34, 1, 2, 'mjnjinini'),
-(3, 14, 5, 4, 'probando api'),
-(4, 15, 5, 1, 'probando api2');
 
 -- --------------------------------------------------------
 
@@ -166,8 +156,7 @@ INSERT INTO `usuario` (`id`, `nombre`, `pass`, `admin`) VALUES
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pj` (`id_pj`),
-  ADD KEY `id_autor` (`id_autor`);
+  ADD KEY `id_pj` (`id_pj`);
 
 --
 -- Indices de la tabla `imagen`
@@ -203,7 +192,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
@@ -237,8 +226,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_pj`) REFERENCES `personaje` (`id`),
-  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id`);
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_pj`) REFERENCES `personaje` (`id`);
 
 --
 -- Filtros para la tabla `imagen`

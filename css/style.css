@@ -365,7 +365,7 @@ header>span {
     margin-top:10px;
 }
 .commentList li > div {
-    display:table-cell;
+    float: left;
 }
 .commenterImage {
     width:30px;
@@ -380,10 +380,11 @@ header>span {
 .commentText p {
     margin:0;
 }
-.sub-text {
-    color:#aaa;
-    font-family:verdana;
-    font-size:11px;
+.autor {
+    color: #aaa;
+    font-family: verdana;
+    font-size: 11px;
+    float: left;
 }
 .actionBox {
     border-top:1px dotted #bbb;

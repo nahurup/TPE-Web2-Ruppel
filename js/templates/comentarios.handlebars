@@ -4,18 +4,29 @@
     </div>
     <div class="actionBox">
         <ul class="commentList">
-            <li>
+            {{#each comentarios}}
+                <li>
                 <div class="commentText">
-                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+                    <span class="autor">Usuario:</span><p class="">{{contenido}}</p>
                 </div>
             </li>
+            {{/each}}
+            
         </ul>
         <form class="form-inline" role="form">
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Your comments" />
+                <input id="contenido" class="form-control" type="text" placeholder="Your comments" />
             </div>
+            <label for="puntaje">Puntaje:</label>
+            <select id="puntaje" name="puntaje">
+                <option id="puntaje" name="puntaje" value="1">1</option>
+                <option id="puntaje" name="puntaje" value="2">2</option>
+                <option id="puntaje" name="puntaje" value="3">3</option>
+                <option id="puntaje" name="puntaje" value="4">4</option>
+                <option id="puntaje" name="puntaje" value="5">5</option>
+            </select>
             <div class="form-group">
-                <button class="btn btn-default">Publicar</button>
+                <button class="btn btn-default" id="publicar">Publicar</button>
             </div>
         </form>
     </div>
