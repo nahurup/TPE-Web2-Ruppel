@@ -38,13 +38,13 @@ function publicarComentario() {
     fetch('api/comentario', {
         method: 'POST',
         headers : new Headers(),
-        body:JSON.stringify({idpj:idpj, puntaje:puntaje, contenido:contenido})
+        body:JSON.stringify({idpj:id_pj, puntaje:puntaje, contenido:contenido})
     }).then((res) => res.json())
     .then((data) =>  console.log(data))
     .catch((err)=>console.log(err))
 }
 
-let publicar = document.getElementById("publicar");
+let publicar = document.querySelector("#publicar-comentario");
 publicar.addEventListener("click", publicarComentario);
 
 

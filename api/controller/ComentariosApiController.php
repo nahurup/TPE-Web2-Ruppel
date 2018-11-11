@@ -1,5 +1,4 @@
 <?php
-
 require_once "Api.php";
 require_once "./../model/ComentariosModel.php";
 
@@ -42,10 +41,14 @@ class ComentariosApiController extends Api{
   }
 
   function InsertarComentario($param = null){
-    $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertarComentario($objetoJson->id_pj, $objetoJson->autor, $objetoJson->puntaje, $objetoJson->contenido);
-
-    return $this->json_response($r, 200);
+    session_start();
+    if(isset($_SESSION["User"])) {
+      $autor = $_SESSION["User"];
+      $objetoJson = $this->getJSONData();
+      $r = $this->model->InsertarComentario($objetoJson[0]->id_pj,$objetoJson[0]->autor,$objetoJson[0]->puntaje,$objetoJson[0]->contenido);
+      return $this->json_response($r, 200);
+    }
   }
+
 }
- ?>
+?>
