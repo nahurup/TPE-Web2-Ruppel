@@ -28,23 +28,28 @@ function mostrarComentarios(jsonComentarios) {
     }
     let html = templateComentarios(context);
     document.querySelector("#comentarios-container").innerHTML = html;
+    let publicar = document.getElementById("publicar-comentario");
+    publicar.addEventListener("click", publicarComentario);
     
 }
 
 function publicarComentario() {
     let contenido = parseInt(document.getElementById("contenido").value);
     let puntaje = parseInt(document.getElementById("puntaje").value);
+
+    let data = {id_pj: '1', autor: 'prueba', puntaje: puntaje, contenido: contenido};
     
     fetch('api/comentario', {
-        method: 'POST',
-        headers : new Headers(),
-        body:JSON.stringify({idpj:id_pj, puntaje:puntaje, contenido:contenido})
-    }).then((res) => res.json())
-    .then((data) =>  console.log(data))
-    .catch((err)=>console.log(err))
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', response));
 }
 
-let publicar = document.querySelector("#publicar-comentario");
-publicar.addEventListener("click", publicarComentario);
+
 
 
