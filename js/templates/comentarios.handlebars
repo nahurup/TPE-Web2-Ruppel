@@ -4,30 +4,40 @@
     </div>
     <div class="actionBox">
         <ul class="commentList">
-            {{#each comentarios}}
-                <li>
-                <div class="commentText">
-                    <span class="autor">Usuario:</span><p class="">{{contenido}}</p>
-                </div>
-            </li>
-            {{/each}}
-            
+            {{#if comentarios}}
+                {{#each comentarios}}
+                    <li>
+                        <div class="commentText">
+                            <span class="autor">{{autor}} </span>
+                            <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span> 
+                            <span class="">{{contenido}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+            {{else}}
+                <h2>Sin comentarios</h2>
+            {{/if}}
         </ul>
         <form class="form-inline" role="form">
             <div class="form-group">
-                <input id="contenido" class="form-control" type="text" placeholder="Your comments" />
+                <input id="contenido" class="form-control" type="text" placeholder="Tus comentarios"/>
             </div>
-            <label for="puntaje">Puntaje:</label>
-            <select id="puntaje" name="puntaje">
-                <option id="puntaje" name="puntaje" value="1">1</option>
-                <option id="puntaje" name="puntaje" value="2">2</option>
-                <option id="puntaje" name="puntaje" value="3">3</option>
-                <option id="puntaje" name="puntaje" value="4">4</option>
-                <option id="puntaje" name="puntaje" value="5">5</option>
-            </select>
+            <div class="form-puntaje">
+                <label for="puntaje">Puntaje: </label>
+                <select id="puntaje" name="puntaje">
+                    <option id="puntaje" name="puntaje" value="1">1</option>
+                    <option id="puntaje" name="puntaje" value="2">2</option>
+                    <option id="puntaje" name="puntaje" value="3">3</option>
+                    <option id="puntaje" name="puntaje" value="4">4</option>
+                    <option id="puntaje" name="puntaje" value="5">5</option>
+                </select>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6Lc-iXoUAAAAAOoyaG5C5zaq6GcWvhmFlZiLeeQ3" data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
             <div class="form-group">
                 <button class="btn btn-default" id="publicar-comentario">Publicar</button>
             </div>
+            
         </form>
     </div>
 </div>

@@ -15,7 +15,6 @@ class ComentariosApiController extends Api{
         $id = $param[0];
         $arreglo = $this->model->GetComentario($id);
         $data = $arreglo;
-        
     }else{
       $data = $this->model->GetComentarios();
     }
@@ -42,9 +41,14 @@ class ComentariosApiController extends Api{
 
   function InsertarComentario($param = null){
     $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertarComentario($objetoJson->id_pj,$objetoJson->autor,$objetoJson->puntaje,$objetoJson->contenido);
-    return $this->json_response($r, 200);
-    
+    session_start();
+    if(isset($_SESSION["User"])){
+      $objetoJson->autor = $_SESSION["User"]; 
+      $r = $this->model->InsertarComentario($objetoJson->id_pj,$objetoJson->autor,$objetoJson->puntaje,$objetoJson->contenido);
+    return $this->json_response($r, 200); 
+    }else {
+      return $this->json_response($objetoJson, 401); 
+    }
   }
 
 }

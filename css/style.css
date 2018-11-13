@@ -77,6 +77,18 @@ body {
     max-width: 500px;
     padding: 4px;
 }
+.form-puntaje {
+    font-size: 11px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 0rem;
+    max-width: 500px;
+    padding: 4px;
+}
 
 .cenblock {
     margin: 0 auto
@@ -358,14 +370,13 @@ header>span {
     padding:0;
     list-style:none;
     max-height:200px;
-    overflow:auto;
 }
 .commentList li {
     margin:0;
     margin-top:10px;
 }
 .commentList li > div {
-    float: left;
+    display:table-cell;
 }
 .commenterImage {
     width:30px;
@@ -381,10 +392,21 @@ header>span {
     margin:0;
 }
 .autor {
+    color: #007bff;
+    font-family: verdana;
+    font-size: 13px;
+    font-weight: bold;
+}
+.texto-autor {
     color: #aaa;
     font-family: verdana;
-    font-size: 11px;
-    float: left;
+    font-size: 12px;
+}
+.puntaje {
+    color: #fda81e;
+    font-family: verdana;
+    font-size: 13px;
+    font-weight: bold;
 }
 .actionBox {
     border-top:1px dotted #bbb;

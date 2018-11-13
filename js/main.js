@@ -33,24 +33,42 @@ function mostrarComentarios(jsonComentarios) {
     
 }
 
+function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Debes completar el campo.</span>';
+        return false;
+    }
+    return true;
+}
+ 
+function verifyCaptcha() {
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+
 function publicarComentario(event) {
     event.preventDefault();
-    let contenido = parseInt(document.getElementById("contenido").value);
-    let puntaje = parseInt(document.getElementById("puntaje").value);
+    let captcha = submitUserForm();
+    if(captcha == true) {
+        let contenido = document.getElementById("contenido").value;
+        let puntaje = parseInt(document.getElementById("puntaje").value);
 
-    // id_pj generaba un error referencial en la base de datos y por eso no enviaba
-    // hay que hacer que la api envie un error de sql cuando no puede insertar
-    let data = {id_pj: '15', autor: 'prueba', puntaje: puntaje, contenido: "contenido"};
+        // id_pj generaba un error referencial en la base de datos y por eso no enviaba
+        // hay que hacer que la api envie un error de sql cuando no puede insertar
+        let data = {id_pj: idpj, autor: '', puntaje: puntaje, contenido: contenido};
     
-    fetch('api/comentario', {
-        method: 'POST', 
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      }).then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response));
+        fetch('api/comentario', {
+            method: 'POST',
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers:{
+            'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error));
+    }else {
+        
+    }
+    
 }
 
 

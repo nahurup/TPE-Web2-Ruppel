@@ -12,6 +12,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Overwatch</title>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
