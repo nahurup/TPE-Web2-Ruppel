@@ -33,14 +33,17 @@ function mostrarComentarios(jsonComentarios) {
     
 }
 
-function publicarComentario() {
+function publicarComentario(event) {
+    event.preventDefault();
     let contenido = parseInt(document.getElementById("contenido").value);
     let puntaje = parseInt(document.getElementById("puntaje").value);
 
-    let data = {id_pj: '1', autor: 'prueba', puntaje: puntaje, contenido: contenido};
+    // id_pj generaba un error referencial en la base de datos y por eso no enviaba
+    // hay que hacer que la api envie un error de sql cuando no puede insertar
+    let data = {id_pj: '15', autor: 'prueba', puntaje: puntaje, contenido: "contenido"};
     
     fetch('api/comentario', {
-        method: 'POST', // or 'PUT'
+        method: 'POST', 
         body: JSON.stringify(data), // data can be `string` or {object}!
         headers:{
           'Content-Type': 'application/json'
