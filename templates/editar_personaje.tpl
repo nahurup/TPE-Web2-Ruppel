@@ -12,6 +12,10 @@
           <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$personaje["descripcion"]}">
         </div>
         <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <input type="file" id="imagenes" name="imagenes[]" multiple/>
+        </div>
+        <div class="form-group">
           <label for="idrolForm">Rol:</label>
           <select id="idrolForm" name="idrolForm">
             {foreach from=$roles item=rol}

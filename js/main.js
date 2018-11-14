@@ -11,6 +11,14 @@ fetch('js/templates/comentarios.handlebars')
 let pathArray = window.location.pathname.split('/');
 let idpj = pathArray[3];
 
+
+
+ function actualizar() {
+    setTimeout(function(){
+        getComentarios()
+     }, 2000);
+ }
+
 function getComentarios() {
     fetch("api/comentario")
     .then(response => response.json())
@@ -20,6 +28,7 @@ function getComentarios() {
         })
         mostrarComentarios(result);
     })
+    actualizar();
 }
 
 function mostrarComentarios(jsonComentarios) {
@@ -53,13 +62,11 @@ function publicarComentario(event) {
         let contenido = document.getElementById("contenido").value;
         let puntaje = parseInt(document.getElementById("puntaje").value);
 
-        // id_pj generaba un error referencial en la base de datos y por eso no enviaba
-        // hay que hacer que la api envie un error de sql cuando no puede insertar
         let data = {id_pj: idpj, autor: '', puntaje: puntaje, contenido: contenido};
     
         fetch('api/comentario', {
             method: 'POST',
-            body: JSON.stringify(data), // data can be `string` or {object}!
+            body: JSON.stringify(data),
             headers:{
             'Content-Type': 'application/json'
             }

@@ -38,6 +38,11 @@ class PersonajesModel
     return $destino_final;
   }
 
+  function BorrarImagen($id){
+    $sentencia = $this->db->prepare("delete from imagen where id=?");
+    $sentencia->execute(array($id));
+  }
+
   private function asignarImagen($path, $lastId){
     $sentencia = $this->db->prepare("INSERT INTO imagen(src, id_pj) VALUES(?,?)");
     $sentencia->execute(array($path,$lastId));
@@ -51,7 +56,6 @@ class PersonajesModel
       $path = $this->subirImagen($tempPath[$i]);
       $this->asignarImagen($path, $lastId);
     }
-    
   }
 
   function BorrarPersonaje($idPj){
@@ -59,9 +63,13 @@ class PersonajesModel
     $sentencia->execute(array($idPj));
   }
 
-  function GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj){
-    $sentencia = $this->db->prepare( "update personaje set nombre = ?, descripcion = ?, id_rol = ? where id=?");
+  function GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$tempPath){
+    $sentencia = $this->db->prepare("update personaje set nombre = ?, descripcion = ?, id_rol = ? where id=?");
     $sentencia->execute(array($nombre,$descripcion,$idRol,$idPj));
+    for ($i = 0; $i < count($tempPath); $i++) {
+      $path = $this->subirImagen($tempPath[$i]);
+      $this->asignarImagen($path, $idPj);
+    }
   }
 }
 

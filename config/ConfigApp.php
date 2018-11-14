@@ -27,6 +27,7 @@ class ConfigApp
       'guardareditarpj'=> 'AdminController#GuardarEditarPersonaje',
       'borrarpj'=> 'AdminController#BorrarPersonaje',
       'insertarpj'=> 'AdminController#InsertarPersonaje',
+      'borrarimg'=> 'AdminController#BorrarImagen',
       'agregarrol'=> 'AdminController#AgregarRol',
       'insertarrol'=> 'AdminController#InsertarRol',
       'borrarrol'=> 'AdminController#BorrarRol',

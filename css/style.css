@@ -412,3 +412,8 @@ header>span {
     border-top:1px dotted #bbb;
     padding:10px;
 }
+.caja-enviar {
+    width: 100%;
+    border: 1px solid #bbb;
+    margin: 0 auto;
+}

@@ -38,7 +38,7 @@ class AdminController extends SecuredController
     $idrol = $_POST["rolForm"];
     $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-    $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol, $rutaTempImagenes);
+    $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
@@ -50,7 +50,7 @@ class AdminController extends SecuredController
 
   function BorrarImagen($param){
     $this->modelpersonajes->BorrarImagen($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 
   function EditarPersonaje($param){
@@ -64,8 +64,9 @@ class AdminController extends SecuredController
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $idRol = $_POST["idrolForm"];
+    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-    $this->modelpersonajes->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj);
+    $this->modelpersonajes->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

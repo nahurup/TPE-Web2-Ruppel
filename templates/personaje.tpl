@@ -14,6 +14,7 @@
                     <h4>Descripcion: {$personaje['descripcion']}</h4>
                     {foreach from=$imagenes item=imagen}
                         <img src="{$imagen['src']}" alt="{$personaje['nombre']}">
+                        <h4><a href="borrarimg/{$imagen['id']}">BORRAR IMAGEN</a></h4>
                     {/foreach} 
                 </div>
             </ul>
@@ -21,6 +22,26 @@
     </form> 
     <div class="comentarios-container" id="comentarios-container">
     </div>
+    <form class="caja-enviar form-inline" role="form">
+        <div class="form-group">
+            <input id="contenido" class="form-control" type="text" placeholder="Tus comentarios"/>
+        </div>
+        <div class="form-puntaje">
+            <label for="puntaje">Puntaje: </label>
+            <select id="puntaje" name="puntaje">
+                <option id="puntaje" name="puntaje" value="1">1</option>
+                <option id="puntaje" name="puntaje" value="2">2</option>
+                <option id="puntaje" name="puntaje" value="3">3</option>
+                <option id="puntaje" name="puntaje" value="4">4</option>
+                <option id="puntaje" name="puntaje" value="5">5</option>
+            </select>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6Lc-iXoUAAAAAOoyaG5C5zaq6GcWvhmFlZiLeeQ3" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+        <div class="form-group">
+            <button class="btn btn-default" id="publicar-comentario">Publicar</button>
+        </div>    
+    </form>
 </div>
       <footer class="footer">
             Copyright © 2018
