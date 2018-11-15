@@ -40,7 +40,7 @@ let pathArray = window.location.pathname.split('/');
 let idpj = pathArray[3];
 
 function eliminarComentario(param) {
-    fetch('api/comentario/'+param, {
+    fetch('apiadmin/comentario/'+param, {
       method: 'DELETE'
     })
     console.log("hola");

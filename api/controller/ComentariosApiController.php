@@ -1,7 +1,6 @@
 <?php
 require_once "Api.php";
 require_once "./../model/ComentariosModel.php";
-require_once "./../model/UsuarioModel.php";
 
 class ComentariosApiController extends Api{
 
@@ -9,7 +8,6 @@ class ComentariosApiController extends Api{
   function __construct(){
     parent::__construct();
     $this->model = new ComentariosModel();
-    $this->modelusuario = new UsuarioModel();
   }
 
   function GetComentarios($param = null){
@@ -24,25 +22,6 @@ class ComentariosApiController extends Api{
       return $this->json_response($data, 200);
     }else{
       return $this->json_response(null, 404);
-    }
-  }
-
-  function BorrarComentario($param = null){
-    if(isset($_SESSION["User"])){
-      $nombre = $_SESSION["User"];
-      if(count($param) == 1){
-          $id = $param[0];
-          $r =  $this->model->BorrarComentario($id);
-          if($r == false){
-            return $this->json_response($r, 300);
-          }
-          return $this->json_response($r, 200);
-      }else{
-        return  $this->json_response("No especifico comentario", 300);
-      }
-    return $this->json_response($r, 200);
-    }else {
-      return $this->json_response($objetoJson, 401);
     }
   }
 
