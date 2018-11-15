@@ -123,7 +123,7 @@ class AdminController extends SecuredController
     $this->modelusuarios->QuitarAdmin($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
-  
+
 }
 
 ?>

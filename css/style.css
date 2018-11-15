@@ -12,10 +12,10 @@ body {
     }
 }
 
-@media (min-width: 1751px) {
+@media (min-width: 1496px) {
     body {
         background: #ffffff;
-        width: 1751px;
+        width: 1200px;
         margin: 0 auto;
     }
 }
@@ -282,7 +282,7 @@ header>span {
         background: rgb(60, 60, 60);
         height: 68px;
     }
-        
+
   .menu .drop {display: inline-block;}/*volvemos a mostrar el botón*/
   .menu nav {/*ahora nuestro menú es una lista flotante*/
       position: absolute;
