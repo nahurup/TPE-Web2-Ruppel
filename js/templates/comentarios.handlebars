@@ -8,8 +8,9 @@
                 {{#each comentarios}}
                     <li>
                         <div class="commentText">
+                            <button class="btn btn-default" value={{id}} id="eliminar-comentario" onclick="eliminarComentario({{id}})">Eliminar</button>
                             <span class="autor">{{autor}} </span>
-                            <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span> 
+                            <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span>
                             <span class="">{{contenido}}</p>
                         </div>
                     </li>

@@ -1,6 +1,7 @@
 <?php
 require_once "Api.php";
 require_once "./../model/ComentariosModel.php";
+require_once "./../model/UsuarioModel.php";
 
 class ComentariosApiController extends Api{
 
@@ -8,6 +9,7 @@ class ComentariosApiController extends Api{
   function __construct(){
     parent::__construct();
     $this->model = new ComentariosModel();
+    $this->modelusuario = new UsuarioModel();
   }
 
   function GetComentarios($param = null){
@@ -26,16 +28,21 @@ class ComentariosApiController extends Api{
   }
 
   function BorrarComentario($param = null){
-    if(count($param) == 1){
-        $id = $param[0];
-        $r =  $this->model->BorrarComentario($id);
-        if($r == false){
-          return $this->json_response($r, 300);
-        }
-
-        return $this->json_response($r, 200);
-    }else{
-      return  $this->json_response("No especifico comentario", 300);
+    if(isset($_SESSION["User"])){
+      $nombre = $_SESSION["User"];
+      if(count($param) == 1){
+          $id = $param[0];
+          $r =  $this->model->BorrarComentario($id);
+          if($r == false){
+            return $this->json_response($r, 300);
+          }
+          return $this->json_response($r, 200);
+      }else{
+        return  $this->json_response("No especifico comentario", 300);
+      }
+    return $this->json_response($r, 200);
+    }else {
+      return $this->json_response($objetoJson, 401);
     }
   }
 
@@ -43,11 +50,11 @@ class ComentariosApiController extends Api{
     $objetoJson = $this->getJSONData();
     session_start();
     if(isset($_SESSION["User"])){
-      $objetoJson->autor = $_SESSION["User"]; 
+      $objetoJson->autor = $_SESSION["User"];
       $r = $this->model->InsertarComentario($objetoJson->id_pj,$objetoJson->autor,$objetoJson->puntaje,$objetoJson->contenido);
-    return $this->json_response($r, 200); 
+    return $this->json_response($r, 200);
     }else {
-      return $this->json_response($objetoJson, 401); 
+      return $this->json_response($objetoJson, 401);
     }
   }
 

@@ -24,7 +24,7 @@ class ComentariosModel
     $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  
+
   function InsertarComentario($id_pj,$autor,$puntaje,$contenido){
     $sentencia = $this->db->prepare("INSERT INTO comentario(id_pj, autor, puntaje, contenido) VALUES(?,?,?,?)");
     $sentencia->execute(array($id_pj,$autor,$puntaje,$contenido));
@@ -32,7 +32,7 @@ class ComentariosModel
 
   function BorrarComentario($id){
     $sentencia = $this->db->prepare("delete from comentario where id=?");
-    $sentencia->execute(array($idPj));
+    $sentencia->execute(array($id));
   }
 }
 
