@@ -14,7 +14,10 @@
                     <h4>Descripcion: {$personaje['descripcion']}</h4>
                     {foreach from=$imagenes item=imagen}
                         <img src="{$imagen['src']}" alt="{$personaje['nombre']}">
-                        <h4><a href="borrarimg/{$imagen['id']}">BORRAR IMAGEN</a></h4>
+                        {if $usuario['admin'] == 1}
+                            <h4><a href="borrarimg/{$imagen['id']}">BORRAR IMAGEN</a></h4>
+                        {/if}
+                        
                     {/foreach} 
                 </div>
             </ul>

@@ -53,27 +53,31 @@ class AdminController extends SecuredController
   }
 
   function InsertarPersonaje(){
-    $nombre = $_POST["nombreForm"];
-    $descripcion = $_POST["descripcionForm"];
-    $idrol = $_POST["rolForm"];
-    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-
-    $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
-
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+      $idrol = $_POST["rolForm"];
+      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+  
+      $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
+  
+      header(ADMIN);
+    } 
   }
 
   function BorrarPersonaje($param){
     if ($this->verificarAdmin() ==true) {
       $this->modelpersonajes->BorrarPersonaje($param[0]);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header(ADMIN);
     }
 
   }
 
   function BorrarImagen($param){
-    $this->modelpersonajes->BorrarImagen($param[0]);
-    header(ADMIN);
+    if ($this->verificarAdmin() ==true) {
+      $this->modelpersonajes->BorrarImagen($param[0]);
+      header(HOME);
+    }
   }
 
   function EditarPersonaje($param){
@@ -83,29 +87,35 @@ class AdminController extends SecuredController
   }
 
   function GuardarEditarPersonaje(){
-    $idPj = $_POST["idForm"];
-    $nombre = $_POST["nombreForm"];
-    $descripcion = $_POST["descripcionForm"];
-    $idRol = $_POST["idrolForm"];
-    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+    if ($this->verificarAdmin() ==true) {
+      $idPj = $_POST["idForm"];
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+      $idRol = $_POST["idrolForm"];
+      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-    $this->modelpersonajes->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
+      $this->modelpersonajes->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header(ADMIN);
+    }
   }
 
   function InsertarRol(){
-    $nombre = $_POST["nombreForm"];
-    $descripcion = $_POST["descripcionForm"];
+    if ($this->verificarAdmin() ==true) {
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
 
-    $this->modelroles->InsertarRol($nombre,$descripcion);
+      $this->modelroles->InsertarRol($nombre,$descripcion);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header(ADMIN);
+    }
   }
 
   function BorrarRol($param){
-    $this->modelroles->BorrarRol($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $this->modelroles->BorrarRol($param[0]);
+      header(ADMIN);
+    }  
   }
 
   function EditarRol($param){
@@ -114,13 +124,15 @@ class AdminController extends SecuredController
   }
 
   function GuardarEditarRol(){
-    $idRol = $_POST["idForm"];
-    $nombre = $_POST["nombreForm"];
-    $descripcion = $_POST["descripcionForm"];
+    if ($this->verificarAdmin() ==true) {
+      $idRol = $_POST["idForm"];
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
 
-    $this->modelroles->GuardarEditarRol($nombre,$descripcion,$idRol);
+      $this->modelroles->GuardarEditarRol($nombre,$descripcion,$idRol);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header(ADMIN);
+    }
   }
 
   function AgregarRol(){
@@ -133,18 +145,24 @@ class AdminController extends SecuredController
   }
 
   function BorrarUsuario($param){
-    $this->modelusuarios->BorrarUsuario($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $this->modelusuarios->BorrarUsuario($param[0]);
+      header(ADMIN);
+    }
   }
 
   function DarAdmin($param){
-    $this->modelusuarios->DarAdmin($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $this->modelusuarios->DarAdmin($param[0]);
+      header(ADMIN);
+    }
   }
 
   function QuitarAdmin($param){
-    $this->modelusuarios->QuitarAdmin($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $this->modelusuarios->QuitarAdmin($param[0]);
+      header(ADMIN);
+    } 
   }
 
 }

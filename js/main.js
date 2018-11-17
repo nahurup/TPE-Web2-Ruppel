@@ -43,8 +43,6 @@ function eliminarComentario(param) {
     fetch('apiadmin/comentario/'+param, {
       method: 'DELETE'
     })
-    console.log("hola");
-    console.log(param);
 }
 
 function submitUserForm() {
