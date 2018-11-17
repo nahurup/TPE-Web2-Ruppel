@@ -1,13 +1,40 @@
 <?php
 require_once "Api.php";
 require_once "./../model/ComentariosModel.php";
+require_once "./../model/UsuarioModel.php";
 
 class ComentariosApiController extends Api{
 
   private $model;
+  private $modelusuarios;
   function __construct(){
     parent::__construct();
     $this->model = new ComentariosModel();
+    $this->modelusuarios = new UsuarioModel();
+  }
+
+  function verificarAdmin(){
+    session_start();
+    if(isset($_SESSION["User"])){
+      $usuario = $_SESSION["User"];
+      $dbUsuario = $this->modelusuarios->getUser($usuario);
+      if($dbUsuario[0]["admin"] == 1) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+          $admin = false;
+          return $this->json_response($admin, 200);
+        }else{
+          $_SESSION['LAST_ACTIVITY'] = time();
+          $admin = true;
+          return $this->json_response($admin, 200);
+        }
+      }else{
+        $admin = false;
+        return $this->json_response($admin, 200);
+      }
+    }else{
+      $admin = false;
+      return $this->json_response($admin, 200);
+    }
   }
 
   function GetComentarios($param = null){

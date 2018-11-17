@@ -4,19 +4,35 @@
     </div>
     <div class="actionBox">
         <ul class="commentList">
-            {{#if comentarios}}
-                {{#each comentarios}}
-                    <li>
-                        <div class="commentText">
-                            <button class="btn btn-default" value={{id}} id="eliminar-comentario" onclick="eliminarComentario({{id}})">Eliminar</button>
-                            <span class="autor">{{autor}} </span>
-                            <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span>
-                            <span class="">{{contenido}}</p>
-                        </div>
-                    </li>
-                {{/each}}
+            {{#if verificar}}
+                {{#if comentarios}}
+                    {{#each comentarios}}
+                        <li>
+                            <div class="commentText">
+                                <button class="btn btn-default" value={{id}} id="eliminar-comentario" onclick="eliminarComentario({{id}})">Eliminar</button>
+                                <span class="autor">{{autor}} </span>
+                                <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span>
+                                <span class="">{{contenido}}</p>
+                            </div>
+                        </li>
+                    {{/each}}
+                {{else}}
+                    <h2>Sin comentarios</h2>
+                {{/if}}
             {{else}}
-                <h2>Sin comentarios</h2>
+                {{#if comentarios}}
+                    {{#each comentarios}}
+                        <li>
+                            <div class="commentText">
+                                <span class="autor">{{autor}} </span>
+                                <span class="texto-autor"> puntuó <span class="puntaje">{{puntaje}}/5 </span>y comentó:</span>
+                                <span class="">{{contenido}}</p>
+                            </div>
+                        </li>
+                    {{/each}}
+                {{else}}
+                    <h2>Sin comentarios</h2>
+                {{/if}}
             {{/if}}
         </ul>
     </div>

@@ -29,6 +29,7 @@ class AdminController extends SecuredController
   }
 
   function verificarAdmin(){
+    session_start();
     if(isset($_SESSION["User"])){
       $usuario = $_SESSION["User"];
       $dbUsuario = $this->modelusuarios->getUser($usuario);
@@ -53,7 +54,7 @@ class AdminController extends SecuredController
   }
 
   function InsertarPersonaje(){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
       $idrol = $_POST["rolForm"];
@@ -66,7 +67,7 @@ class AdminController extends SecuredController
   }
 
   function BorrarPersonaje($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelpersonajes->BorrarPersonaje($param[0]);
       header(ADMIN);
     }
@@ -74,7 +75,7 @@ class AdminController extends SecuredController
   }
 
   function BorrarImagen($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelpersonajes->BorrarImagen($param[0]);
       header(HOME);
     }
@@ -87,7 +88,7 @@ class AdminController extends SecuredController
   }
 
   function GuardarEditarPersonaje(){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $idPj = $_POST["idForm"];
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
@@ -101,7 +102,7 @@ class AdminController extends SecuredController
   }
 
   function InsertarRol(){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
 
@@ -112,7 +113,7 @@ class AdminController extends SecuredController
   }
 
   function BorrarRol($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelroles->BorrarRol($param[0]);
       header(ADMIN);
     }  
@@ -124,7 +125,7 @@ class AdminController extends SecuredController
   }
 
   function GuardarEditarRol(){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $idRol = $_POST["idForm"];
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
@@ -145,21 +146,21 @@ class AdminController extends SecuredController
   }
 
   function BorrarUsuario($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelusuarios->BorrarUsuario($param[0]);
       header(ADMIN);
     }
   }
 
   function DarAdmin($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelusuarios->DarAdmin($param[0]);
       header(ADMIN);
     }
   }
 
   function QuitarAdmin($param){
-    if ($this->verificarAdmin() ==true) {
+    if ($this->verificarAdmin() == true) {
       $this->modelusuarios->QuitarAdmin($param[0]);
       header(ADMIN);
     } 

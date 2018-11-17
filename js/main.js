@@ -4,31 +4,40 @@ let templateComentarios;
 fetch('js/templates/comentarios.handlebars')
 .then(response => response.text())
 .then(template => {
-    templateComentarios = Handlebars.compile(template); // compila y prepara el template
-    getComentarios();
+    templateComentarios = Handlebars.compile(template);
+    verificar();
 });
 
 function actualizar() {
    setTimeout(function(){
-       getComentarios()
+        verificar();
     }, 2000);
 }
 
-function getComentarios() {
-   fetch("api/comentario")
-   .then(response => response.json())
-   .then(jsonComentarios => {
-       let result = jsonComentarios.filter(obj => {
-           return obj.id_pj === idpj
-       })
-       mostrarComentarios(result);
-   })
-   actualizar();
+function verificar() {
+    fetch("api/verificar")
+    .then(response => response.json())
+    .then(jsonVerificar => {
+        getComentarios(jsonVerificar);
+    })
 }
 
-function mostrarComentarios(jsonComentarios) {
-   let context = { // como el assign de smarty
-       comentarios: jsonComentarios
+function getComentarios(verificar) {
+    fetch("api/comentario")
+    .then(response => response.json())
+    .then(jsonComentarios => {
+        let result = jsonComentarios.filter(obj => {
+            return obj.id_pj === idpj
+        })
+       mostrarComentarios(result, verificar);
+    })
+    actualizar();
+}
+
+function mostrarComentarios(jsonComentarios, verificar) {
+   let context = {
+       comentarios: jsonComentarios,
+       verificar: verificar
    }
    let html = templateComentarios(context);
    document.querySelector("#comentarios-container").innerHTML = html;
