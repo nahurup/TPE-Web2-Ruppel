@@ -25,7 +25,13 @@ class AdminController extends SecuredController
   function Home(){
     $personajes = $this->modelpersonajes->GetPersonajes();
     $roles = $this->modelroles->GetRoles();
-    $this->view->Mostrar($personajes, $roles);
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->Mostrar($personajes, $roles, $usuario[0]);
+    }else{
+      $this->view->Mostrar($personajes, $roles);
+    }
   }
 
   function verificarAdmin(){
@@ -50,7 +56,13 @@ class AdminController extends SecuredController
 
   function AgregarPersonaje(){
     $roles = $this->modelroles->GetRoles();
-    $this->view->MostrarAgregarPJ($roles);
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->MostrarAgregarPJ($roles, $usuario[0]);
+    }else{
+      $this->view->MostrarAgregarPJ($roles);
+    } 
   }
 
   function InsertarPersonaje(){
@@ -84,7 +96,14 @@ class AdminController extends SecuredController
   function EditarPersonaje($param){
     $personaje = $this->modelpersonajes->GetPersonaje($param);
     $roles = $this->modelroles->GetRoles();
-    $this->view->MostrarEditarPersonaje($personaje[0], $roles);
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->MostrarEditarPersonaje($personaje[0], $roles, $usuario[0]);
+    }else{
+      $this->view->MostrarEditarPersonaje($personaje[0], $roles);
+    }
+    
   }
 
   function GuardarEditarPersonaje(){
@@ -121,7 +140,13 @@ class AdminController extends SecuredController
 
   function EditarRol($param){
     $rol= $this->modelroles->GetRol($param);
-    $this->view->MostrarEditarRol($rol[0]);
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->MostrarEditarRol($rol[0], $usuario[0]);
+    }else{
+      $this->view->MostrarEditarRol($rol[0]);
+    }
   }
 
   function GuardarEditarRol(){
@@ -137,12 +162,25 @@ class AdminController extends SecuredController
   }
 
   function AgregarRol(){
-    $this->view->MostrarAgregarRol();
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->MostrarAgregarRol($usuario[0]);
+    }else{
+      $this->view->MostrarAgregarRol();
+    }
   }
 
   function MostrarUsuarios(){
     $usuarios= $this->modelusuarios->GetUsuarios();
-    $this->view->MostrarUsuarios($usuarios);
+    if(isset($_SESSION["User"])) {
+      $nombre = $_SESSION["User"];
+      $usuario = $this->modelusuarios->getUser($nombre);
+      $this->view->MostrarUsuarios($usuarios, $usuario[0]);
+    }else{
+      $this->view->MostrarUsuarios($usuarios);
+    }
+    
   }
 
   function BorrarUsuario($param){

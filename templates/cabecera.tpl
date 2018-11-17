@@ -29,8 +29,6 @@
         <a href="roles">Roles</a>
         <a href="registrar">Registrar</a>
         <a href="login">Login</a>
-        <a href="admin">Admin</a>
-        <a href="logout">Logout</a>
       </nav>  
     </div>
 </div>

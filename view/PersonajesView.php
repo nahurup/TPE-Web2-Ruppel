@@ -3,10 +3,11 @@ require('libs/Smarty.class.php');
 
 class PersonajesView
 {
-  function Mostrar($personajes, $roles){
+  function Mostrar($personajes, $roles, $usuario = null){
     $smarty = new Smarty();
     $smarty->assign('personajes',$personajes);
     $smarty->assign('roles',$roles);
+    $smarty->assign('usuario',$usuario);
     $smarty->display('templates/lista_personajes.tpl');
   }
 

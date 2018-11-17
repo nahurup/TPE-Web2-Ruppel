@@ -1,4 +1,8 @@
-{include file="cabecera.tpl"}
+{if $usuario}
+    {include file="cabecera_logeado.tpl"}
+{else}
+    {include file="cabecera.tpl"}
+{/if}
 
 <div class="container container-lista" id="container"> 
     <form>
