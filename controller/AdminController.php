@@ -27,6 +27,25 @@ class AdminController extends SecuredController
     $this->view->Mostrar($personajes, $roles);
   }
 
+  function verificarAdmin(){
+    if(isset($_SESSION["User"])){
+      $usuario = $_SESSION["User"];
+      $dbUsuario = $this->modelusuarios->getUser($usuario);
+      if($dbUsuario[0]["admin"] == 1) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+          return false;
+        }else{
+          $_SESSION['LAST_ACTIVITY'] = time();
+          return true;
+        }
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+
   function AgregarPersonaje(){
     $roles = $this->modelroles->GetRoles();
     $this->view->MostrarAgregarPJ($roles);
@@ -44,8 +63,11 @@ class AdminController extends SecuredController
   }
 
   function BorrarPersonaje($param){
-    $this->modelpersonajes->BorrarPersonaje($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    if ($this->verificarAdmin() ==true) {
+      $this->modelpersonajes->BorrarPersonaje($param[0]);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    }
+
   }
 
   function BorrarImagen($param){
