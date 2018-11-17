@@ -15,6 +15,7 @@ class AdminController extends SecuredController
   function __construct()
   {
     parent::__construct();
+    
     $this->view = new AdminView();
     $this->modelpersonajes = new PersonajesModel();
     $this->modelroles = new RolesModel();
@@ -72,7 +73,7 @@ class AdminController extends SecuredController
 
   function BorrarImagen($param){
     $this->modelpersonajes->BorrarImagen($param[0]);
-    header(HOME);
+    header(ADMIN);
   }
 
   function EditarPersonaje($param){
