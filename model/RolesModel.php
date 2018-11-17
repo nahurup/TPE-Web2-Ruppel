@@ -38,7 +38,7 @@ class RolesModel
   }
 
   function GuardarEditarRol($nombre,$descripcion,$id){
-    $sentencia = $this->db->prepare( "update rol set nombre = ?, descripcion = ? where id=?");
+    $sentencia = $this->db->prepare("update rol set nombre = ?, descripcion = ? where id=?");
     $sentencia->execute(array($nombre,$descripcion,$id));
   }
 

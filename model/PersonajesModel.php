@@ -43,6 +43,11 @@ class PersonajesModel
     $sentencia->execute(array($id));
   }
 
+  function BorrarComentariosPJ($id){
+    $sentencia = $this->db->prepare("delete from comentario where id_pj=?");
+    $sentencia->execute(array($id));
+  }
+
   private function asignarImagen($path, $lastId){
     $sentencia = $this->db->prepare("INSERT INTO imagen(src, id_pj) VALUES(?,?)");
     $sentencia->execute(array($path,$lastId));
@@ -59,6 +64,10 @@ class PersonajesModel
   }
 
   function BorrarPersonaje($idPj){
+    $sentencia = $this->db->prepare("delete from comentario where id_pj=?");
+    $sentencia->execute(array($idPj));
+    $sentencia = $this->db->prepare("delete from imagen where id_pj=?");
+    $sentencia->execute(array($idPj));
     $sentencia = $this->db->prepare("delete from personaje where id=?");
     $sentencia->execute(array($idPj));
   }
