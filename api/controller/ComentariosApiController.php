@@ -40,7 +40,7 @@ class ComentariosApiController extends Api{
   function GetComentarios($param = null){
     if(isset($param)){
         $id = $param[0];
-        $arreglo = $this->model->GetComentario($id);
+        $arreglo = $this->model->GetComentariosPJ($id);
         $data = $arreglo;
     }else{
       $data = $this->model->GetComentarios();

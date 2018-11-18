@@ -1,5 +1,6 @@
 'use strict'
 let templateComentarios;
+let orden = 0;
 
 fetch('js/templates/comentarios.handlebars')
 .then(response => response.text())
@@ -18,35 +19,83 @@ function verificar() {
     fetch("api/verificar")
     .then(response => response.json())
     .then(jsonVerificar => {
-        getComentarios(jsonVerificar);
+        if(orden == 1) {
+            getComentariosDESC(jsonVerificar);
+        }else{
+            getComentarios(jsonVerificar);
+        }
     })
 }
 
-function getComentarios(verificar) {
-    fetch("api/comentario")
-    .then(response => response.json())
-    .then(jsonComentarios => {
-        let result = jsonComentarios.filter(obj => {
-            return obj.id_pj === idpj
-        })
-       mostrarComentarios(result, verificar);
-    })
-    actualizar();
+function A(event) {
+    event.preventDefault();
+    if(orden == 0) {
+        orden = 1;
+    }else{
+        orden = 0;
+    }
 }
 
-function mostrarComentarios(jsonComentarios, verificar) {
-   let context = {
-       comentarios: jsonComentarios,
-       verificar: verificar
-   }
-   let html = templateComentarios(context);
-   document.querySelector("#comentarios-container").innerHTML = html;
-   let publicar = document.getElementById("publicar-comentario");
-   publicar.addEventListener("click", publicarComentario);
+
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+
+    return function (a,b) {
+        if(sortOrder == -1){
+            return b[property].localeCompare(a[property]);
+        }else{
+            return a[property].localeCompare(b[property]);
+        }        
+    }
 }
 
 let pathArray = window.location.pathname.split('/');
 let idpj = pathArray[3];
+
+function getComentarios(verificar) {
+    fetch("api/comentario/"+idpj).then(response => {
+        return response.json();
+      }).then(data => {
+        data.sort(dynamicSort("puntaje"));
+        mostrarComentarios(data, verificar);
+        console.log("actualizado")
+      }).catch(err => {
+        console.log(err)
+      });
+    actualizar();
+}
+
+function getComentariosDESC(verificar) {
+    fetch("api/comentario/"+idpj).then(response => {
+        return response.json();
+      }).then(data => {
+        data.sort(dynamicSort("-puntaje"));
+        mostrarComentarios(data, verificar);
+        console.log("actualizado")
+      }).catch(err => {
+        console.log(err)
+      });
+    actualizar();
+}
+
+function mostrarComentarios(jsonComentarios, verificar) {
+    let context = {
+        comentarios: jsonComentarios,
+        verificar: verificar
+    }
+    let html = templateComentarios(context);
+    document.querySelector("#comentarios-container").innerHTML = html;
+    let publicar = document.getElementById("publicar-comentario");
+    publicar.addEventListener("click", publicarComentario);
+    let reordenar = document.getElementById("reordenar");
+    reordenar.addEventListener("click", A);
+}
 
 function eliminarComentario(param) {
     fetch('apiadmin/comentario/'+param, {
