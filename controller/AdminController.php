@@ -25,13 +25,7 @@ class AdminController extends SecuredController
   function Home(){
     $personajes = $this->modelpersonajes->GetPersonajes();
     $roles = $this->modelroles->GetRoles();
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->Mostrar($personajes, $roles, $usuario[0]);
-    }else{
-      $this->view->Mostrar($personajes, $roles);
-    }
+    $this->view->Mostrar($personajes, $roles);
   }
 
   function verificarAdmin(){
@@ -56,59 +50,27 @@ class AdminController extends SecuredController
 
   function AgregarPersonaje(){
     $roles = $this->modelroles->GetRoles();
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->MostrarAgregarPJ($roles, $usuario[0]);
-    }else{
-      $this->view->MostrarAgregarPJ($roles);
-    }
+    $this->view->MostrarAgregarPJ($roles);
   }
 
   function EditarPersonaje($param){
     $personaje = $this->modelpersonajes->GetPersonaje($param);
     $roles = $this->modelroles->GetRoles();
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->MostrarEditarPersonaje($personaje[0], $roles, $usuario[0]);
-    }else{
-      $this->view->MostrarEditarPersonaje($personaje[0], $roles);
-    }
-
+    $this->view->MostrarEditarPersonaje($personaje[0], $roles);
   }
 
   function EditarRol($param){
     $rol= $this->modelroles->GetRol($param);
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->MostrarEditarRol($rol[0], $usuario[0]);
-    }else{
-      $this->view->MostrarEditarRol($rol[0]);
-    }
+    $this->view->MostrarEditarRol($rol[0]);
   }
 
   function AgregarRol(){
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->MostrarAgregarRol($usuario[0]);
-    }else{
-      $this->view->MostrarAgregarRol();
-    }
+    $this->view->MostrarAgregarRol();
   }
 
   function MostrarUsuarios(){
     $usuarios= $this->modelusuarios->GetUsuarios();
-    if(isset($_SESSION["User"])) {
-      $nombre = $_SESSION["User"];
-      $usuario = $this->modelusuarios->getUser($nombre);
-      $this->view->MostrarUsuarios($usuarios, $usuario[0]);
-    }else{
-      $this->view->MostrarUsuarios($usuarios);
-    }
-
+    $this->view->MostrarUsuarios($usuarios);
   }
 
   function BorrarUsuario($param){

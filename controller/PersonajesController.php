@@ -81,7 +81,6 @@ class PersonajesController
       }else{
         $this->model->InsertarPersonaje($nombre,$descripcion,$idrol);
       }
-
       header(ADMIN);
     }
   }
@@ -93,7 +92,6 @@ class PersonajesController
     }else{
       header(ADMIN);
     }
-
   }
 
   function BorrarImagen($param){
