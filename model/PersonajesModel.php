@@ -52,14 +52,16 @@ class PersonajesModel
     $sentencia = $this->db->prepare("INSERT INTO imagen(src, id_pj) VALUES(?,?)");
     $sentencia->execute(array($path,$lastId));
   }
-  
-  function InsertarPersonaje($nombre,$descripcion,$idrol,$tempPath){
+
+  function InsertarPersonaje($nombre,$descripcion,$idrol,$tempPath = null){
     $sentencia = $this->db->prepare("INSERT INTO personaje(nombre, descripcion, id_rol) VALUES(?,?,?)");
     $sentencia->execute(array($nombre,$descripcion,$idrol));
-    $lastId = $this->db->lastInsertId();
-    for ($i = 0; $i < count($tempPath); $i++) {
-      $path = $this->subirImagen($tempPath[$i]);
-      $this->asignarImagen($path, $lastId);
+    if (isset($tempPath)) {
+      $lastId = $this->db->lastInsertId();
+      for ($i = 0; $i < count($tempPath); $i++) {
+        $path = $this->subirImagen($tempPath[$i]);
+        $this->asignarImagen($path, $lastId);
+      }
     }
   }
 

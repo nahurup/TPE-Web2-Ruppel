@@ -18,7 +18,6 @@ class ConfigApi
       'comentario#POST'=> 'ComentariosApiController#InsertarComentario',
       'verificar#GET'=> 'ComentariosApiController#verificarAdmin'
     ];
-
 }
 
- ?>
+?>

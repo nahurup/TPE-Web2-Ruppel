@@ -64,5 +64,26 @@ class ComentariosApiController extends Api{
     }
   }
 
+  function BorrarComentario($param = null){
+    session_start();
+    if(isset($_SESSION["User"])){
+      $usuario = $_SESSION["User"];
+      $dbUsuario = $this->modelusuarios->getUser($usuario);
+      if($dbUsuario[0]["admin"] == 1) {
+        if(count($param) == 1){
+            $id = $param[0];
+            $r =  $this->model->BorrarComentario($id);
+            if($r == false){
+              return $this->json_response($r, 300);
+            }
+            return $this->json_response($r, 200);
+        }else{
+          return  $this->json_response("No especifico comentario", 300);
+        }
+      return $this->json_response($r, 200);
+      }
+    }
+  }
+
 }
 ?>

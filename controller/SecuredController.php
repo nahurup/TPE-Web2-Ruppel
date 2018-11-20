@@ -1,8 +1,6 @@
 <?php
 require_once  "./model/UsuarioModel.php";
 
-define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/login');
-
 class SecuredController
 {
   private $model;

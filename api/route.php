@@ -13,10 +13,10 @@ function parseURL($url)
 
 if(isset($_GET['resource'])){
     $urlData = parseURL($_GET['resource']);
-    $resource = $urlData[ConfigApi::$RESOURCE]; //home
+    $resource = $urlData[ConfigApi::$RESOURCE];
     if(array_key_exists($resource,ConfigApi::$RESOURCES)){
         $params = $urlData[ConfigApi::$PARAMS];
-        $resource = explode('#',ConfigApi::$RESOURCES[$resource]); //Array[0] -> TareasController [1] -> BorrarTarea
+        $resource = explode('#',ConfigApi::$RESOURCES[$resource]);
         $controller =  new $resource[0]();
         $metodo = $resource[1];
         if(isset($params) &&  $params != null){

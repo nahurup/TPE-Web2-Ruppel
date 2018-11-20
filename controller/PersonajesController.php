@@ -18,6 +18,26 @@ class PersonajesController
     $this->modelusuarios = new UsuarioModel();
   }
 
+  function verificarAdmin(){
+    session_start();
+    if(isset($_SESSION["User"])){
+      $usuario = $_SESSION["User"];
+      $dbUsuario = $this->modelusuarios->getUser($usuario);
+      if($dbUsuario[0]["admin"] == 1) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+          return false;
+        }else{
+          $_SESSION['LAST_ACTIVITY'] = time();
+          return true;
+        }
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+
   function Home(){
     $personajes = $this->model->GetPersonajes();
     $roles = $this->modelroles->GetRoles();
@@ -44,10 +64,60 @@ class PersonajesController
       }else{
         $this->view->MostrarPersonaje($personaje, $roles, $imagenes);
       }
-      
     }
     else {
       header(HOME);
+    }
+  }
+
+  function InsertarPersonaje(){
+    if ($this->verificarAdmin() == true) {
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+      $idrol = $_POST["rolForm"];
+      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+      if (isset($rutaTempImagenes)) {
+        $this->model->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
+      }else{
+        $this->model->InsertarPersonaje($nombre,$descripcion,$idrol);
+      }
+
+      header(ADMIN);
+    }
+  }
+
+  function BorrarPersonaje($param){
+    if ($this->verificarAdmin() == true) {
+      $this->model->BorrarPersonaje($param[0]);
+      header(ADMIN);
+    }else{
+      header(ADMIN);
+    }
+
+  }
+
+  function BorrarImagen($param){
+    if ($this->verificarAdmin() == true) {
+      $this->model->BorrarImagen($param[0]);
+      header(HOME);
+    }else{
+      header(ADMIN);
+    }
+  }
+
+  function GuardarEditarPersonaje(){
+    if ($this->verificarAdmin() == true) {
+      $idPj = $_POST["idForm"];
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+      $idRol = $_POST["idrolForm"];
+      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+
+      $this->model->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
+
+      header(ADMIN);
+    }else{
+      header(ADMIN);
     }
   }
 

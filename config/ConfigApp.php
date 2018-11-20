@@ -3,6 +3,7 @@
 define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
 define('ADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]). '/admin');
 define('LOGOUT', 'Location: http://'.$_SERVER["SERVER_NAME"] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]). '/logout');
+define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/login');
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', '');
@@ -24,15 +25,15 @@ class ConfigApp
       'quitaradmin'=> 'AdminController#QuitarAdmin',
       'agregarpersonaje'=> 'AdminController#AgregarPersonaje',
       'editarpj'=> 'AdminController#EditarPersonaje',
-      'guardareditarpj'=> 'AdminController#GuardarEditarPersonaje',
-      'borrarpj'=> 'AdminController#BorrarPersonaje',
-      'insertarpj'=> 'AdminController#InsertarPersonaje',
-      'borrarimg'=> 'AdminController#BorrarImagen',
+      'guardareditarpj'=> 'PersonajesController#GuardarEditarPersonaje',
+      'borrarpj'=> 'PersonajesController#BorrarPersonaje',
+      'insertarpj'=> 'PersonajesController#InsertarPersonaje',
+      'borrarimg'=> 'PersonajesController#BorrarImagen',
       'agregarrol'=> 'AdminController#AgregarRol',
-      'insertarrol'=> 'AdminController#InsertarRol',
-      'borrarrol'=> 'AdminController#BorrarRol',
+      'insertarrol'=> 'RolesController#InsertarRol',
+      'borrarrol'=> 'RolesController#BorrarRol',
       'editarrol'=> 'AdminController#EditarRol',
-      'guardarEditarRol'=> 'AdminController#GuardarEditarRol',
+      'guardarEditarRol'=> 'RolesController#GuardarEditarRol',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarlogin' => 'LoginController#verificarLogin',

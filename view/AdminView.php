@@ -2,48 +2,49 @@
 
 class AdminView
 {
-    function Mostrar($personajes, $roles, $usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('personajes',$personajes);
-        $smarty->assign('roles',$roles);
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/admin_lista.tpl');
-    }
+  private $Smarty;
 
-    function MostrarUsuarios($usuarios, $usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('usuarios',$usuarios);
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/usuarios.tpl');
-    }
+  function __construct()
+  {
+    $this->Smarty = new Smarty();
+  }
 
-    function MostrarAgregarPJ($roles, $usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('roles',$roles);
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/agregar_personaje.tpl');
-    }
+  function Mostrar($personajes, $roles, $usuario = null){
+    $this->Smarty->assign('personajes',$personajes);
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/admin_lista.tpl');
+  }
 
-    function MostrarEditarPersonaje($personaje, $roles, $usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('personaje',$personaje);
-        $smarty->assign('roles',$roles);
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/editar_personaje.tpl');
-      }
+  function MostrarUsuarios($usuarios, $usuario = null){
+    $this->Smarty->assign('usuarios',$usuarios);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/usuarios.tpl');
+  }
 
-    function MostrarAgregarRol($usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/agregar_rol.tpl');
-    }
+  function MostrarAgregarPJ($roles, $usuario = null){
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/agregar_personaje.tpl');
+  }
 
-    function MostrarEditarRol($rol, $usuario = null){
-        $smarty = new Smarty();
-        $smarty->assign('rol',$rol);
-        $smarty->assign('usuario',$usuario);
-        $smarty->display('templates/editar_rol.tpl');
-    }
+  function MostrarEditarPersonaje($personaje, $roles, $usuario = null){
+    $this->Smarty->assign('personaje',$personaje);
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/editar_personaje.tpl');
+  }
+
+  function MostrarAgregarRol($usuario = null){
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/agregar_rol.tpl');
+  }
+
+  function MostrarEditarRol($rol, $usuario = null){
+    $this->Smarty->assign('rol',$rol);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/editar_rol.tpl');
+  }
 }
 
 ?>

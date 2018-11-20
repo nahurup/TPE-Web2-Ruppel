@@ -3,20 +3,25 @@
 
 class RolesView
 {
+  private $Smarty;
+
+  function __construct()
+  {
+    $this->Smarty = new Smarty();
+  }
+
   function Mostrar($roles, $personajes, $usuario = null){
-    $smarty = new Smarty();
-    $smarty->assign('roles',$roles);
-    $smarty->assign('personajes',$personajes);
-    $smarty->assign('usuario',$usuario);
-    $smarty->display('templates/lista_roles.tpl');
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('personajes',$personajes);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/lista_roles.tpl');
   }
 
   function MostrarRol($datos, $personajes, $usuario = null){
-    $smarty = new Smarty();
-    $smarty->assign('datos',$datos);
-    $smarty->assign('personajes',$personajes);
-    $smarty->assign('usuario',$usuario);
-    $smarty->display('templates/rol.tpl');
+    $this->Smarty->assign('datos',$datos);
+    $this->Smarty->assign('personajes',$personajes);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/rol.tpl');
   }
 
 }

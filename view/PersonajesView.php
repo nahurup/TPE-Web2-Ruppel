@@ -3,21 +3,26 @@ require('libs/Smarty.class.php');
 
 class PersonajesView
 {
+  private $Smarty;
+
+  function __construct()
+  {
+    $this->Smarty = new Smarty();
+  }
+
   function Mostrar($personajes, $roles, $usuario = null){
-    $smarty = new Smarty();
-    $smarty->assign('personajes',$personajes);
-    $smarty->assign('roles',$roles);
-    $smarty->assign('usuario',$usuario);
-    $smarty->display('templates/lista_personajes.tpl');
+    $this->Smarty->assign('personajes',$personajes);
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/lista_personajes.tpl');
   }
 
   function MostrarPersonaje($personajes, $roles, $imagenes, $usuario = null){
-    $smarty = new Smarty();
-    $smarty->assign('personajes',$personajes);
-    $smarty->assign('roles',$roles);
-    $smarty->assign('imagenes',$imagenes);
-    $smarty->assign('usuario',$usuario);
-    $smarty->display('templates/personaje.tpl');
+    $this->Smarty->assign('personajes',$personajes);
+    $this->Smarty->assign('roles',$roles);
+    $this->Smarty->assign('imagenes',$imagenes);
+    $this->Smarty->assign('usuario',$usuario);
+    $this->Smarty->display('templates/personaje.tpl');
   }
 }
 

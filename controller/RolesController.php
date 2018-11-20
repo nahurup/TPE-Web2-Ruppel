@@ -18,6 +18,26 @@ class RolesController
     $this->modelusuarios = new UsuarioModel();
   }
 
+  function verificarAdmin(){
+    session_start();
+    if(isset($_SESSION["User"])){
+      $usuario = $_SESSION["User"];
+      $dbUsuario = $this->modelusuarios->getUser($usuario);
+      if($dbUsuario[0]["admin"] == 1) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+          return false;
+        }else{
+          $_SESSION['LAST_ACTIVITY'] = time();
+          return true;
+        }
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+
   function Home(){
     $roles = $this->model->GetRoles();
     $personajes = $this->modelpersonajes->GetPersonajes();
@@ -45,9 +65,46 @@ class RolesController
       }
     }
     else {
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header(HOME);
     }
   }
+
+  function InsertarRol(){
+    if ($this->verificarAdmin() == true) {
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+
+      $this->model->InsertarRol($nombre,$descripcion);
+
+      header(ADMIN);
+    }else{
+      header(ADMIN);
+    }
+  }
+
+  function BorrarRol($param){
+    if ($this->verificarAdmin() == true) {
+      $this->model->BorrarRol($param[0]);
+      header(ADMIN);
+    }else{
+      header(ADMIN);
+    }
+  }
+
+  function GuardarEditarRol(){
+    if ($this->verificarAdmin() == true) {
+      $idRol = $_POST["idForm"];
+      $nombre = $_POST["nombreForm"];
+      $descripcion = $_POST["descripcionForm"];
+
+      $this->model->GuardarEditarRol($nombre,$descripcion,$idRol);
+
+      header(ADMIN);
+    }else{
+      header(ADMIN);
+    }
+  }
+
 }
 
- ?>
+?>

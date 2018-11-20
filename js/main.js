@@ -27,32 +27,20 @@ function verificar() {
     })
 }
 
-function A(event) {
-    event.preventDefault();
-    if(orden == 0) {
-        orden = 1;
-    }else{
-        orden = 0;
-    }
-}
-
-
-
 function dynamicSort(property) {
-    var sortOrder = 1;
+  var sortOrder = 1;
+  if(property[0] === "-") {
+    sortOrder = -1;
+    property = property.substr(1);
+  }
 
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
+  return function (a,b) {
+    if(sortOrder == -1){
+      return b[property].localeCompare(a[property]);
+    }else{
+      return a[property].localeCompare(b[property]);
     }
-
-    return function (a,b) {
-        if(sortOrder == -1){
-            return b[property].localeCompare(a[property]);
-        }else{
-            return a[property].localeCompare(b[property]);
-        }        
-    }
+  }
 }
 
 let pathArray = window.location.pathname.split('/');
@@ -64,7 +52,6 @@ function getComentarios(verificar) {
       }).then(data => {
         data.sort(dynamicSort("puntaje"));
         mostrarComentarios(data, verificar);
-        console.log("actualizado")
       }).catch(err => {
         console.log(err)
       });
@@ -77,7 +64,6 @@ function getComentariosDESC(verificar) {
       }).then(data => {
         data.sort(dynamicSort("-puntaje"));
         mostrarComentarios(data, verificar);
-        console.log("actualizado")
       }).catch(err => {
         console.log(err)
       });
@@ -98,7 +84,7 @@ function mostrarComentarios(jsonComentarios, verificar) {
 }
 
 function eliminarComentario(param) {
-    fetch('apiadmin/comentario/'+param, {
+    fetch('api/comentario/'+param, {
       method: 'DELETE'
     })
 }
@@ -132,7 +118,8 @@ function publicarComentario(event) {
             'Content-Type': 'application/json'
             }
         }).then(res => res.json())
-        .catch(error => console.error('Error:', error));
+        .catch(error =>
+          console.error('Error:', error));
     }else {
 
     }

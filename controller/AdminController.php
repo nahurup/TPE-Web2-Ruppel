@@ -15,7 +15,7 @@ class AdminController extends SecuredController
   function __construct()
   {
     parent::__construct();
-    
+
     $this->view = new AdminView();
     $this->modelpersonajes = new PersonajesModel();
     $this->modelroles = new RolesModel();
@@ -62,34 +62,6 @@ class AdminController extends SecuredController
       $this->view->MostrarAgregarPJ($roles, $usuario[0]);
     }else{
       $this->view->MostrarAgregarPJ($roles);
-    } 
-  }
-
-  function InsertarPersonaje(){
-    if ($this->verificarAdmin() == true) {
-      $nombre = $_POST["nombreForm"];
-      $descripcion = $_POST["descripcionForm"];
-      $idrol = $_POST["rolForm"];
-      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-  
-      $this->modelpersonajes->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
-  
-      header(ADMIN);
-    } 
-  }
-
-  function BorrarPersonaje($param){
-    if ($this->verificarAdmin() == true) {
-      $this->modelpersonajes->BorrarPersonaje($param[0]);
-      header(ADMIN);
-    }
-
-  }
-
-  function BorrarImagen($param){
-    if ($this->verificarAdmin() == true) {
-      $this->modelpersonajes->BorrarImagen($param[0]);
-      header(HOME);
     }
   }
 
@@ -103,39 +75,7 @@ class AdminController extends SecuredController
     }else{
       $this->view->MostrarEditarPersonaje($personaje[0], $roles);
     }
-    
-  }
 
-  function GuardarEditarPersonaje(){
-    if ($this->verificarAdmin() == true) {
-      $idPj = $_POST["idForm"];
-      $nombre = $_POST["nombreForm"];
-      $descripcion = $_POST["descripcionForm"];
-      $idRol = $_POST["idrolForm"];
-      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-
-      $this->modelpersonajes->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
-
-      header(ADMIN);
-    }
-  }
-
-  function InsertarRol(){
-    if ($this->verificarAdmin() == true) {
-      $nombre = $_POST["nombreForm"];
-      $descripcion = $_POST["descripcionForm"];
-
-      $this->modelroles->InsertarRol($nombre,$descripcion);
-
-      header(ADMIN);
-    }
-  }
-
-  function BorrarRol($param){
-    if ($this->verificarAdmin() == true) {
-      $this->modelroles->BorrarRol($param[0]);
-      header(ADMIN);
-    }  
   }
 
   function EditarRol($param){
@@ -146,18 +86,6 @@ class AdminController extends SecuredController
       $this->view->MostrarEditarRol($rol[0], $usuario[0]);
     }else{
       $this->view->MostrarEditarRol($rol[0]);
-    }
-  }
-
-  function GuardarEditarRol(){
-    if ($this->verificarAdmin() == true) {
-      $idRol = $_POST["idForm"];
-      $nombre = $_POST["nombreForm"];
-      $descripcion = $_POST["descripcionForm"];
-
-      $this->modelroles->GuardarEditarRol($nombre,$descripcion,$idRol);
-
-      header(ADMIN);
     }
   }
 
@@ -180,7 +108,7 @@ class AdminController extends SecuredController
     }else{
       $this->view->MostrarUsuarios($usuarios);
     }
-    
+
   }
 
   function BorrarUsuario($param){
@@ -201,7 +129,7 @@ class AdminController extends SecuredController
     if ($this->verificarAdmin() == true) {
       $this->modelusuarios->QuitarAdmin($param[0]);
       header(ADMIN);
-    } 
+    }
   }
 
 }

@@ -44,7 +44,6 @@ class LoginController
       }else{
         $this->view->mostrarLogin("No existe el usario");
       }
-
   }
 
   function registrarUsuario(){
