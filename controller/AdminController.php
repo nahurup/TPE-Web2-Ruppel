@@ -24,8 +24,9 @@ class AdminController extends SecuredController
 
   function Home(){
     $personajes = $this->modelpersonajes->GetPersonajes();
+    $personajes2 = array_reverse($personajes);
     $roles = $this->modelroles->GetRoles();
-    $this->view->Mostrar($personajes, $roles);
+    $this->view->Mostrar($personajes2, $roles);
   }
 
   function verificarAdmin(){

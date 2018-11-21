@@ -75,11 +75,12 @@ class PersonajesController
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
       $idrol = $_POST["rolForm"];
-      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-      if (isset($rutaTempImagenes)) {
-        $this->model->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
-      }else{
+      
+      if (!(empty($_FILES['imagenes'][0]))) {
         $this->model->InsertarPersonaje($nombre,$descripcion,$idrol);
+      }else{
+        $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+        $this->model->InsertarPersonaje($nombre,$descripcion,$idrol,$rutaTempImagenes);
       }
       header(ADMIN);
     }
