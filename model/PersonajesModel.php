@@ -77,10 +77,10 @@ class PersonajesModel
   function GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$tempPath){
     $sentencia = $this->db->prepare("update personaje set nombre = ?, descripcion = ?, id_rol = ? where id=?");
     $sentencia->execute(array($nombre,$descripcion,$idRol,$idPj));
-    if (isset($tempPath)){
+    if (!empty($tempPath[0])) {
       for ($i = 0; $i < count($tempPath); $i++) {
         $path = $this->subirImagen($tempPath[$i]);
-        $this->asignarImagen($path, $idPj);
+        $this->asignarImagen($path, $lastId);
       }
     }
   }

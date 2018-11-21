@@ -110,10 +110,13 @@ class PersonajesController
       $nombre = $_POST["nombreForm"];
       $descripcion = $_POST["descripcionForm"];
       $idRol = $_POST["idrolForm"];
-      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-
-      $this->model->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
-
+      
+      if (!(empty($_FILES['imagenes'][0]))) {
+        $this->model->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj);
+      }else{
+        $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+        $this->model->GuardarEditarPersonaje($nombre,$descripcion,$idRol,$idPj,$rutaTempImagenes);
+      }
       header(ADMIN);
     }else{
       header(ADMIN);
