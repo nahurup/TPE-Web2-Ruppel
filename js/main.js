@@ -43,6 +43,15 @@ function dynamicSort(property) {
   }
 }
 
+function cambiarOrden(event) {
+    event.preventDefault();
+    if(orden == 1){
+        orden = 0;
+    }else{
+        orden = 1;
+    }
+}
+
 let pathArray = window.location.pathname.split('/');
 let idpj = pathArray[3];
 
@@ -80,7 +89,7 @@ function mostrarComentarios(jsonComentarios, verificar) {
     let publicar = document.getElementById("publicar-comentario");
     publicar.addEventListener("click", publicarComentario);
     let reordenar = document.getElementById("reordenar");
-    reordenar.addEventListener("click", A);
+    reordenar.addEventListener("click", cambiarOrden);
 }
 
 function eliminarComentario(param) {
